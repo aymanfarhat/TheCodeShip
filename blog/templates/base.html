@@ -32,7 +32,7 @@
             {% for category in all_categories %}
               {% with catabs=category.get_absolute_url %}
                 <li><a href="{{catabs}}" 
-                  {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.countposts}}</sup></a>
+                  {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.post_set.count}}</sup></a>
                 </li>
               {% endwith %}
             {% endfor %}

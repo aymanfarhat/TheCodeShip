@@ -12,7 +12,7 @@ class Post(models.Model):
 	tags = TaggableManager(blank=True)
 	meta_desc = models.CharField(max_length=150,blank=True)
 	author = models.ForeignKey(User)
-	category = models.ForeignKey('blog.Category')
+	category = models.ForeignKey('Category')
 
 	def __unicode__(self):
 		return "%s" % self.title
@@ -34,6 +34,3 @@ class Category(models.Model):
 
 	def get_absolute_url(self):
 		return reverse('blog.views.showcategory',args=[str(self.slug)])
-
-	def countposts(self):
-		return len(Post.objects.filter(category__name=self.name))
