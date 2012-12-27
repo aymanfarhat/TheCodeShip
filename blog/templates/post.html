@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% load staticfiles %}
+{% block metadesc %}{{post.meta_desc}}{% endblock %}
+{% block keywords %}{{post.tags.all|join:","}}{% endblock %}
+{% block author %}{{post.author}}{% endblock %}
+{% block optional_js %}
+<script type="text/javascript" src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js"></script>
+<script type="text/javascript">
+$.SyntaxHighlighter.init({
+		'baseUrl': '/static/jquery-syntaxhighlighter',
+		'themes':['sunburst'],
+		'theme':'sunburst',
+		'lineNumbers':false,
+	});</script>
+{% endblock %}
+{% block content %}
+	<article>
+		<header>
+			<time datetime="{{post.created|naturaltime}}">{{post.created|naturaltime}}</time>
+			<h1>{{post.title}}</h1>
+		</header>
+		<p>
+			{{post.content|safe}}
+		</p>
+		<ul class="taglist">
+			{% for tag in post.tags.all %}
+				<li><a href="{%url showtag tag%}">{{tag}}</a></li>
+			{% endfor %}
+		</ul>
+	</article>
+{% endblock %}

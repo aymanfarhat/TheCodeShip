@@ -1,0 +1,18 @@
+{% extends "base.html "%}
+{% load humanize %}
+{% block content %}
+	{% for post in posts %}
+		<article>
+        <header>
+            <time datetime="{{post.created|naturaltime}}">{{post.created|naturaltime}}</time>
+          <h1><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
+        </header>
+        <p>
+          {{post.content|truncatewords_html:50|safe}}
+        </p>
+        <p><a href="{{post.get_absolute_url}}" class="more-link">Read more &#9660;</a></p>
+      </article>
+  {% empty %}
+      We couldn't find any under this tag to show, come back later!
+	{% endfor %}
+{% endblock %}

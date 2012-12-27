@@ -1,0 +1,49 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}The Code Ship{% endblock %}</title>
+  <meta name="description" content="{% block metadesc %}{% endblock %}" />
+  <meta name="keywords" content="{% block keywords %}{% endblock%}"/>
+  <meta name="author" content="{% block author %}{% endblock %}" />
+  <link rel="shortcut icon" href="/favicon.png" />
+  <link rel="stylesheet" href="{% static "css/style.css" %}" />
+  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+  <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  {% block optional_js %}{% endblock %}
+</head>
+<body>
+<div class="container">
+  <div id="main" role="main">
+      {% block content %}{% endblock %}
+      <div id="posts-anchor"></div>
+  </div>
+  <aside id="sidebar">
+    <div class="sidebarMain">
+      <header>
+        <h1><a href="{% url home %}">The Code Ship</a></h1>
+        <img src="{% static "images/logo.png" %}" width="170"/>
+      </header>
+      <nav role="navigation">
+        <div class="menu-main-container">
+          <ul id="menu-main" class="menu">
+            {% for category in all_categories %}
+              {% with catabs=category.get_absolute_url %}
+                <li><a href="{{catabs}}" 
+                  {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.countposts}}</sup></a>
+                </li>
+              {% endwith %}
+            {% endfor %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="sidebarFoot">
+      A blog by <a href="http://aymanfarhat.com">Ayman Farhat</a> - built with <a href="http://www.djangoproject.com/">Django</a>
+    </div>
+  </aside>
+</div>
+</body>
+</html>
