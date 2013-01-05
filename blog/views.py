@@ -1,26 +1,29 @@
 from django.http import HttpResponse
-from django.shortcuts import render_to_response
-from django.views.generic.simple import direct_to_template
 from blog.models import Post
-from blog.context_processors import all_categories
-from django.template import RequestContext
 from django.shortcuts import get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, InvalidPage
+from django.views.generic import ListView,DetailView
 
-def index(request):	
-	allposts = Post.objects.order_by('created')
-	paginator = Paginator(allposts,5)
-	page = paginator.page(1)
-	return direct_to_template(request,'postlist.html',{'posts':page.object_list,'page':page})
+class ListPosts(ListView):
+	template_name = "postlist.html"
+	context_object_name="posts"
+	paginate_by = 5
+	allow_empty = True
 
-def showpost(request,catslug,postslug):
-	post = get_object_or_404(Post.objects.filter(category__slug=catslug,slug=postslug))
-	return direct_to_template(request,"post.html",{'post':post})
+class IndexView(ListPosts):
+	queryset = Post.objects.order_by('created')
 
-def showcategory(request,slug):
-	categposts = Post.objects.filter(category__slug=slug).order_by('created');
-	return direct_to_template(request,"postlist.html",{"posts":categposts})
+class CategoryView(ListPosts):
+	def get_queryset(self):
+		return Post.objects.filter(category__slug=self.kwargs['slug']).order_by('created')
 
-def showtag(request,tagslug):
-	posts_with_tag = Post.objects.filter(tags__name__in=[tagslug]).order_by('created')
-	return direct_to_template(request,"postlist.html",{"posts":posts_with_tag})
+class TagsView(ListPosts):
+	def get_queryset(self):
+		return Post.objects.filter(tags__name__in=[self.kwargs['tagslug']]).order_by('created')
+
+class ShowPost(DetailView):
+	template_name="post.html"
+	context_object_name='post'
+
+	def get_object(self):
+		return get_object_or_404(Post.objects.filter(category__slug=self.kwargs['catslug'],slug=self.kwargs['postslug']))

@@ -18,7 +18,7 @@ class Post(models.Model):
 		return "%s" % self.title
 
 	def get_absolute_url(self):
-		return reverse('blog.views.showpost',args=[str(self.category.slug),str(self.slug)])
+		return reverse('showpost',args=[str(self.category.slug),str(self.slug)])
 
 class Category(models.Model):
 	name = models.CharField(max_length=100,unique=True)
@@ -33,4 +33,4 @@ class Category(models.Model):
 		return "%s" % self.name
 
 	def get_absolute_url(self):
-		return reverse('blog.views.showcategory',args=[str(self.slug)])
+		return reverse('showcategory',args=[str(self.slug)])
