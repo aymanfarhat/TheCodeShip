@@ -5,15 +5,23 @@ from django.core.paginator import Paginator, EmptyPage, InvalidPage
 from django.views.generic import ListView,DetailView
 
 class ListPosts(ListView):
-	template_name = "postlist.html"
 	context_object_name="posts"
 	paginate_by = 5
 	allow_empty = True
+	
+	def get_template_names(self):
+		if self.request.is_ajax():
+			return ['json/postlist.json']
+		else:
+			return ['postlist.html']
 
 class IndexView(ListPosts):
 	queryset = Post.objects.order_by('created')
 
 class CategoryView(ListPosts):
+	#def get(self,request,*args,**kwargs):
+		#return HttpResponse(request.GET.get('page'))
+
 	def get_queryset(self):
 		return Post.objects.filter(category__slug=self.kwargs['slug']).order_by('created')
 

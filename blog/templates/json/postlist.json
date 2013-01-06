@@ -1,0 +1,2 @@
+{% load humanize %}
+{"page": {{ page_obj.number }},"hasNext": {{ page_obj.has_next|lower }},"itemList":[{% for post in posts %}{"title": "{{post.title}}","url": "{{post.get_absolute_url}}","excerpt":"{{post.content|truncatewords_html:50|safe}}","created":"{{post.created|naturaltime}}"}{% if not forloop.last %},{% endif %}{% endfor %}]}

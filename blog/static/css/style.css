@@ -13,7 +13,7 @@ article, aside, figure, footer, header, hgroup, nav, section {
 	display:block;
 }
 
-nav ul {
+nav ul,ul.postlist {
 	list-style:none;
 }
 
@@ -139,10 +139,6 @@ label, input[type=button], input[type=submit], button {
 	color: #000;
 	background-color: #E7E9F0;
 	text-shadow:none;
-}
-
-html {
-	overflow-y:scroll;
 }
 
 button {
@@ -361,3 +357,6 @@ article ul.taglist li a{ border:1px #CCC solid; padding:2px 3px;}
 .commentlist, .children {
 	list-style:none;
 }
+
+.postloading{text-align:center;width:100%;height:32px;}
+.postloading .spinner{width: 32px;height: 32px;margin: 0 auto;background:url("../images/loader.gif") center center no-repeat;display:none;}

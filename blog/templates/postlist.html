@@ -1,18 +1,27 @@
 {% extends "base.html "%}
 {% load humanize %}
+{% load staticfiles %}
+{% block optional_js %}
+<script type="text/javascript" src="{% static "js/infinite.scroll.js" %}"></script>
+{% endblock %}
 {% block content %}
-	{% for post in posts %}
-		<article>
+<ul class="postlist">
+  {% for post in posts %}
+    <li>
+      <article>
         <header>
-            <time datetime="{{post.created|naturaltime}}">{{post.created|naturaltime}}</time>
-          <h1><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
+            <time datetime="{{post.created|naturaltime}}" pubdate>{{post.created|naturaltime}}</time>
+            <h1><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
         </header>
         <p>
           {{post.content|truncatewords_html:50|safe}}
         </p>
         <p><a href="{{post.get_absolute_url}}" class="more-link">Read more &#9660;</a></p>
       </article>
+    </li>
   {% empty %}
       We couldn't find any under this tag to show, come back later!
-	{% endfor %}
+  {% endfor %}
+</ul>
+<div class="postloading"><div class="spinner"></div></div>
 {% endblock %}
