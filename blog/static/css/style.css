@@ -9,17 +9,11 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 }
 
-article, aside, figure, footer, header, hgroup, nav, section {
-	display:block;
-}
+article, aside, figure, footer, header, hgroup, nav, section {display:block;}
 
-nav ul,ul.postlist {
-	list-style:none;
-}
+nav ul,ul.postlist {list-style:none;}
 
-blockquote, q {
-	quotes:none;
-}
+blockquote, q {quotes:none;}
 
 blockquote:before, blockquote:after, q:before, q:after {
 	content:'';
@@ -192,7 +186,8 @@ button {
 	display:block;
 }
 
-a {
+a 
+{
 	color:#808080;
 	text-decoration:none;
 	-webkit-transition:color .1s ease-in;
@@ -201,7 +196,8 @@ a {
 	transition:color .1s ease-in;
 }
 
-a:hover {
+a:hover 
+{
 	color:#333;
 	-webkit-transition:color .1s ease-in;
 	-moz-transition:color .1s ease-in;
@@ -209,12 +205,14 @@ a:hover {
 	transition:color .1s ease-in;
 }
 
-.container {
-	width:960px;
+.container 
+{
+	width:965px;
 	margin:auto;
 }
 
-#main {
+#main 
+{
 	width:585px;
 	float:right;
 	background-color:white;
@@ -242,6 +240,7 @@ header h1 {
 }
 header h1 a{color:#000;}
 header h1 a:hover{color:grey;}
+
 #sidebar {
 	position:fixed;
     width:242px;
@@ -252,6 +251,45 @@ header h1 a:hover{color:grey;}
 	background-color:#FFF;
 	padding:15px 15px 15px 15px;
 	box-shadow: 0 1px 10px #A7A7A7, inset 0 1px 0 white;
+}
+#sidebar .sidebarMain .flip 
+{
+  -webkit-perspective: 800;
+    position: relative;
+}
+
+#sidebar .sidebarMain  .flip .logodesc.flipped 
+{
+  -webkit-transform: rotatey(-180deg);
+}
+
+#sidebar .sidebarMain .logodesc
+{
+	width:100%;
+	height:206px;
+	-webkit-transform-style: preserve-3d;
+  	-webkit-transition: 0.5s;
+}
+
+#sidebar .sidebarMain .logodesc .logo
+{
+	background:#fff url('../images/logo.png') no-repeat center;
+	width:100%;
+	height:100%;
+	position: absolute;
+ 	-webkit-backface-visibility: hidden ;
+    z-index: 2;
+    position: absolute;
+  	z-index: 1;
+  	cursor: pointer;
+}
+#sidebar .sidebarMain .logodesc .desc
+{
+	position: absolute;
+ 	-webkit-backface-visibility: hidden ;
+    z-index: 2;
+    -webkit-transform: rotatey(-180deg);
+    cursor: pointer;
 }
 
 #sidebar .sidebarFoot, #sidebar .sidebarMain{ text-align:center;}
@@ -360,3 +398,18 @@ article ul.taglist li a{ border:1px #CCC solid; padding:2px 3px;}
 
 .postloading{text-align:center;width:100%;height:32px;}
 .postloading .spinner{width: 32px;height: 32px;margin: 0 auto;background:url("../images/loader.gif") center center no-repeat;display:none;}
+
+#scrollTop
+{
+	float:right;
+	width:50px;
+	height:50px; 
+	background-image:url('../images/up.png');
+	position:fixed;
+	top:15px;
+	right:120px;
+	z-index:10;
+	min-width:0;
+	display:none;
+	cursor: pointer;
+}

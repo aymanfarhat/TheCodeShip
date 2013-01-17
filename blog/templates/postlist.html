@@ -2,7 +2,15 @@
 {% load humanize %}
 {% load staticfiles %}
 {% block optional_js %}
-<script type="text/javascript" src="{% static "js/infinite.scroll.js" %}"></script>
+<script type="text/javascript" src="{% static "js/scroll.js" %}"></script>
+<script type="text/javascript">
+  $(document).ready(function()
+  {
+    $(window).bind('scroll',loadOnScroll);
+    $(window).bind('scroll',showScrollToTop);
+    $('#scrollTop').bind('click',scrollUp);
+  });
+</script>
 {% endblock %}
 {% block content %}
 <ul class="postlist">

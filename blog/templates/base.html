@@ -16,6 +16,7 @@
 </head>
 <body>
 <div class="container">
+  <a id="scrollTop"></a>
   <div id="main" role="main">
       {% block content %}{% endblock %}
   </div>
@@ -23,7 +24,12 @@
     <div class="sidebarMain">
       <header>
         <h1><a href="{% url home %}">The Code Ship</a></h1>
-        <img src="{% static "images/logo.png" %}" width="170"/>
+        <div class="flip">
+          <div class="logodesc">
+            <div class="logo"></div>
+            <div class="desc">Blog description hidden behind this logo</div>
+          </div>
+        </div>
       </header>
       <nav role="navigation">
         <div class="menu-main-container">

@@ -6,13 +6,22 @@
 {% block author %}{{post.author}}{% endblock %}
 {% block optional_js %}
 <script type="text/javascript" src="http://balupton.github.com/jquery-syntaxhighlighter/scripts/jquery.syntaxhighlighter.min.js"></script>
+<script type="text/javascript" src="{% static "js/scroll.js" %}"></script>
 <script type="text/javascript">
-$.SyntaxHighlighter.init({
+  $(document).ready(function()
+  {
+
+    $(window).bind('scroll',showScrollToTop);
+    $('#scrollTop').bind('click',scrollUp);
+
+    $.SyntaxHighlighter.init({
 		'baseUrl': '/static/jquery-syntaxhighlighter',
 		'themes':['tomorrow'],
 		'theme':'tomorrow',
 		'lineNumbers':false,
-	});</script>
+	});
+  });
+</script>
 {% endblock %}
 {% block content %}
 	<article>

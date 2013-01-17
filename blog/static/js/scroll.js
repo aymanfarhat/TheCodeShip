@@ -1,9 +1,4 @@
-  /* Javascript for the infinite ajax scrolling used in pages with post listing */
-  $("document").ready(function()
-  {
-    $(window).bind('scroll',loadOnScroll);
-  });
-
+  /* Javascript for the infinite ajax scrolling and back to top scrolling */
   var pageNum = 1;
   var hasNextPage = true;
   var baseUrl = location.href;
@@ -15,7 +10,7 @@
     {
       $(window).unbind();
       loadItems();
-    } 
+    }
   }
 
   /* Get posts in JSON format, build html list code and append it to end */
@@ -57,9 +52,8 @@
     var posts = data.itemList;
 
     for(var i = 0; i < posts.length; i++)
-    {
-      html += '<li><article><header><time datetime="{0}" pubdate>{0}</time><h1><a href="{1}" rel="bookmark" title="{2}">{2}</a></h1></header><p>{3}</p><p><a href="{1}" class="more-link">Read more &#9660;</a></p></article></li>'.format(posts[i].created,posts[i].url,posts[i].title,posts[i].excerpt); 
-    }
+      html += '<li><article><header><time datetime="{0}" pubdate>{0}</time><h1><a href="{1}" rel="bookmark" title="{2}">{2}</a></h1></header><p>{3}</p><p><a href="{1}" class="more-link">Read more &#9660;</a></p></article></li>'.format(posts[i].created,posts[i].url,posts[i].title,posts[i].excerpt);
+    
     return html;
   }
 
@@ -72,3 +66,16 @@
       return typeof args[number] != 'undefined'? args[number]:match;
     });
   };
+
+  /* Show scroll to top button after the user scrolls */
+  var showScrollToTop = function()
+  {
+    if($(window).scrollTop() > 300)
+      $('#scrollTop').css('display','block');
+  }
+
+  /* Scrolls the window upward slowly */
+  var scrollUp = function()
+  {
+    $('html, body').animate({scrollTop:0}, 'slow');
+  }
