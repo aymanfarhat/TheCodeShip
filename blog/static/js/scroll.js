@@ -8,7 +8,7 @@
   {
     if ($(window).scrollTop() >= ($(document).height() - $(window).innerHeight()))
     {
-      $(window).unbind();
+      $(window).unbind('scroll',loadOnScroll);
       loadItems();
     }
   }
@@ -35,6 +35,7 @@
         {
           $(".postlist").append(buildHtml(data));
           hasNextPage = data.hasNext;
+          console.log(data.hasNext);
         },
         complete:function(data)
         {
