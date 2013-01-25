@@ -124,13 +124,13 @@ label, input[type=button], input[type=submit], button {
 
 
 ::-moz-selection {
-	color: #000;
+	color: #444;
 	background-color: #E7E9F0;
 	text-shadow:none;
 }
 
 ::selection {
-	color: #000;
+	color: #444;
 	background-color: #E7E9F0;
 	text-shadow:none;
 }
@@ -221,8 +221,10 @@ a:hover
 	box-shadow: 0 1px 10px #A7A7A7, inset 0 1px 0 white;
 }
 
-body {
+body 
+{
 	background-color:#efefef;
+	background-image: url('../images/bg.png');
 }
 
 article {
@@ -236,9 +238,9 @@ img {
 }
 
 header h1 {
-	font-family: 'Lobster', Helvetica, Arial, sans-serif;font-size:35px;margin-bottom:5px;
+	font-family:'Lobster', Helvetica, Arial, sans-serif;font-size:35px;margin-bottom:5px;
 }
-header h1 a{color:#000;}
+header h1 a{color:#444;}
 header h1 a:hover{color:grey;}
 
 #sidebar {
@@ -294,7 +296,7 @@ header h1 a:hover{color:grey;}
 
 #sidebar .sidebarFoot, #sidebar .sidebarMain{ text-align:center;}
 
-#sidebar .sidebarFoot{padding:5px 0 0 0;}
+#sidebar .sidebarFoot{padding:10px 0 0 0;}
 
 #sidebar>nav {
 	margin-bottom:8px;
