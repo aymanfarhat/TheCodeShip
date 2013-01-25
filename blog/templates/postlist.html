@@ -22,7 +22,7 @@
             <h1><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
         </header>
         <p>
-          {{post.content|truncatewords_html:50|safe}}
+          {{post.content|truncatewords_html:50|striptags}}
         </p>
         <ul class="taglist">
           {% for tag in post.tags.all %}
