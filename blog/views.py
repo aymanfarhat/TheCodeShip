@@ -19,9 +19,6 @@ class IndexView(ListPosts):
 	queryset = Post.objects.order_by('created')
 
 class CategoryView(ListPosts):
-	#def get(self,request,*args,**kwargs):
-		#return HttpResponse(request.GET.get('page'))
-
 	def get_queryset(self):
 		return Post.objects.filter(category__slug=self.kwargs['slug']).order_by('created')
 
