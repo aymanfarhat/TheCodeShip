@@ -144,7 +144,7 @@ a:hover
 
 .container 
 {
-	width:965px;
+	width:950px;
 	margin:auto;
 }
 
@@ -153,7 +153,7 @@ a:hover
 	width:585px;
 	float:right;
 	background-color:white;
-	padding:20px 60px 30px 60px;
+	padding:20px 50px 30px 50px;
 	min-height:100%;
 	box-shadow: 0 1px 10px #A7A7A7, inset 0 1px 0 white;
 }
@@ -316,3 +316,15 @@ article ul.taglist li a{padding:2px 3px;font-size:14px;}
 }
 
 .clear{clear:both;}
+
+#sharebar
+{
+	width:50px;
+	right:100px;
+	position:fixed;
+	text-align:center;
+	background-color: #FFF;
+	padding: 15px 15px 15px 15px;
+	box-shadow: 0 1px 10px #A7A7A7, inset 0 1px 0 white;
+	line-height:30px;
+}

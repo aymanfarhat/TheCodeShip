@@ -14,6 +14,13 @@
   });
 </script>
 {% endblock %}
+{% block sharebar %}
+<div id="sharebar">
+      <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
+      <a class="addthis_button_tweet" tw:count="vertical"></a>
+      <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
+ </div>
+{% endblock %}
 {% block content %}
 	<article>
 		<header>
@@ -27,6 +34,10 @@
 			{% for tag in post.tags.all %}
 				<li><a href="{%url showtag tag%}">#{{tag}}</a></li>
 			{% endfor %}
+		<div class="clear"></div>
 		</ul>
 	</article>
+{% endblock %}
+{% block sharebarjs %}
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5102b41029aef194"></script>
 {% endblock %}

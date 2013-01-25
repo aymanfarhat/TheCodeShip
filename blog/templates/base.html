@@ -17,6 +17,7 @@
 <body>
 <div class="container">
   <a id="scrollTop"></a>
+  {% block sharebar %}{% endblock%}
   <div id="main" role="main">
       {% block content %}{% endblock %}
   </div>
@@ -36,7 +37,7 @@
           <ul id="menu-main" class="menu">
             {% for category in all_categories %}
               {% with catabs=category.get_absolute_url %}
-                <li><a href="{{catabs}}" 
+                <li><a href="{{catabs}}"
                   {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.post_set.count}}</sup></a>
                 </li>
               {% endwith %}
@@ -50,5 +51,6 @@
     </div>
   </aside>
 </div>
+{% block sharebarjs %}{% endblock %}
 </body>
 </html>
