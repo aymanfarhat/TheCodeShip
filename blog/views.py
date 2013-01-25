@@ -16,15 +16,15 @@ class ListPosts(ListView):
 			return ['postlist.html']
 
 class IndexView(ListPosts):
-	queryset = Post.objects.order_by('created')
+	queryset = Post.objects.order_by('-created')
 
 class CategoryView(ListPosts):
 	def get_queryset(self):
-		return Post.objects.filter(category__slug=self.kwargs['slug']).order_by('created')
+		return Post.objects.filter(category__slug=self.kwargs['slug']).order_by('-created')
 
 class TagsView(ListPosts):
 	def get_queryset(self):
-		return Post.objects.filter(tags__name__in=[self.kwargs['tagslug']]).order_by('created')
+		return Post.objects.filter(tags__name__in=[self.kwargs['tagslug']]).order_by('-created')
 
 class ShowPost(DetailView):
 	template_name="post.html"
