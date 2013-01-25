@@ -119,7 +119,6 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'blog',
     'taggit',
-    'django_admin_bootstrapped',
     'django.contrib.admin',
     'tinymce',
 
