@@ -24,8 +24,15 @@
         <p>
           {{post.content|truncatewords_html:50|safe}}
         </p>
+        <ul class="taglist">
+          {% for tag in post.tags.all %}
+            <li><a href="{%url showtag tag%}">#{{tag}}</a></li>
+          {% endfor %}
+          <div class="clear"></div>
+        </ul>
         <p><a href="{{post.get_absolute_url}}" class="more-link">Read more &#9660;</a></p>
       </article>
+
     </li>
   {% empty %}
       We couldn't find any under this tag to show, come back later!

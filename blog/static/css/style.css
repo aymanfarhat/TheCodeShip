@@ -376,7 +376,7 @@ article p, article ol, article ul {
 	margin-bottom:10px;
 }
 
-article ul.taglist{list-style-type: none;clear:both;margin-top:25px;}
+article ul.taglist{list-style-type: none;clear:both;}
 article ul.taglist li{float:left; margin-right:8px;}
 article ul.taglist li a{padding:2px 3px;font-size:14px;}
 
@@ -413,3 +413,5 @@ article ul.taglist li a{padding:2px 3px;font-size:14px;}
 	display:none;
 	cursor: pointer;
 }
+
+.clear{clear:both;}
