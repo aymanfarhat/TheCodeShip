@@ -303,16 +303,28 @@ article ul.taglist li a{padding:2px 3px;font-size:14px;}
 #scrollTop
 {
 	float:right;
-	width:50px;
-	height:50px; 
-	background-image:url('../images/up.png');
+	width:60px;
+	height:63px; 
+	background: #ddd url('../images/up-arrow.png') no-repeat center center;
 	position:fixed;
-	top:15px;
+	bottom:30px;
 	right:120px;
 	z-index:10;
 	min-width:0;
 	display:none;
 	cursor: pointer;
+
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#scrollTop:hover
+{
+	background-color: #808080;
 }
 
 .clear{clear:both;}

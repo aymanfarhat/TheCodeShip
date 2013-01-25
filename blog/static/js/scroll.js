@@ -70,8 +70,14 @@
   /* Show scroll to top button after the user scrolls */
   var showScrollToTop = function()
   {
-    if($(window).scrollTop() > 300)
+    if($(this).scrollTop() > 300)
+    {
       $('#scrollTop').css('display','block');
+    }
+    else 
+    {
+      $('#scrollTop').css('display','none');
+    }
   }
 
   /* Scrolls the window upward slowly */
