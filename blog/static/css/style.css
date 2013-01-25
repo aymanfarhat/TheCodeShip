@@ -378,7 +378,7 @@ article p, article ol, article ul {
 
 article ul.taglist{list-style-type: none;clear:both;margin-top:25px;}
 article ul.taglist li{float:left; margin-right:8px;}
-article ul.taglist li a{ border:1px #CCC solid; padding:2px 3px;}
+article ul.taglist li a{padding:2px 3px;font-size:14px;}
 
 #older, #newer {
 	font-size:14px;
