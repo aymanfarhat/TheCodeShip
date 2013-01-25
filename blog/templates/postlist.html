@@ -18,7 +18,7 @@
     <li>
       <article>
         <header>
-            <time datetime="{{post.created|naturaltime}}" pubdate>{{post.created|naturaltime}}</time>
+            <time datetime="{{post.created|naturaltime}}" pubdate>{{post.created|naturaltime|capfirst}}</time>
             <h1><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
         </header>
         <p>

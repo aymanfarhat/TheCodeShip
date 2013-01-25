@@ -25,7 +25,7 @@
 {% block content %}
 	<article>
 		<header>
-			<time datetime="{{post.created|naturaltime}}">{{post.created|naturaltime}}</time>
+			<time datetime="{{post.created|naturaltime}}">{{post.created|naturaltime|capfirst}}</time>
 			<h1>{{post.title}}</h1>
 		</header>
 		<p>
