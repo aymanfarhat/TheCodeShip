@@ -1,10 +1,12 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from blog.views import IndexView,CategoryView,TagsView,ShowPost
+from blog.feeds import LatestPostsFeed
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
+	url(r'^latest/feed/$',LatestPostsFeed()),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',IndexView.as_view(), name='home'),
     url(r'^tag/(?P<tagslug>[-\w]+)/$',TagsView.as_view(),name='showtag'),
