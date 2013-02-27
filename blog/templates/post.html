@@ -7,10 +7,15 @@
 {% block ogtitle %}{{post.title}} | The Code Ship{% endblock %}
 {% block ogdesc %}{{post.content|truncatewords_html:35|striptags}}{% endblock %}
 {% block optional_js %}
+<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
 <script type="text/javascript" src="{% static "js/scroll.js" %}"></script>
 <script type="text/javascript">
   $(document).ready(function()
   {
+  	hljs.tabReplace = '    ';
+  	hljs.initHighlightingOnLoad();
+
     $(window).bind('scroll',showScrollToTop);
     $('#scrollTop').bind('click',scrollUp);
   });

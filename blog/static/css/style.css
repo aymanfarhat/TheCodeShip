@@ -68,9 +68,9 @@ sup
 	font-size:14px;
 }
 
-pre 
+pre
 {
-	padding:15px;
+	/**padding:15px;**/
 	white-space:pre;
 	white-space:pre-wrap;
 	word-wrap:break-word;
