@@ -4,6 +4,8 @@
 {% block metadesc %}{{post.meta_desc}}{% endblock %}
 {% block keywords %}{{post.tags.all|join:","}}{% endblock %}
 {% block author %}{{post.author}}{% endblock %}
+{% block ogtitle %}{{post.title}} | The Code Ship{% endblock %}
+{% block ogdesc %}{{post.content|truncatewords_html:35|striptags}}{% endblock %}
 {% block optional_js %}
 <script type="text/javascript" src="{% static "js/scroll.js" %}"></script>
 <script type="text/javascript">

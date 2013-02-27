@@ -5,8 +5,14 @@
   <meta charset="utf-8">
   <title>{% block title %}The Code Ship{% endblock %}</title>
   <meta name="description" content="{% block metadesc %}{% endblock %}" />
-  <meta name="keywords" content="{% block keywords %}{% endblock%}"/>
-  <meta name="author" content="{% block author %}{% endblock %}" />
+  <meta name="keywords" content="{% block keywords %}programming,web,software,development,code,deployment,adventure,coding{% endblock%}"/>
+  <meta name="author" content="{% block author %}Ayman{% endblock %}" />
+  <meta property="og:image" content="{% block ogimage %}http://{{request.get_host}}{% static "images/logo.png" %}{% endblock %}"/>
+  <meta property="og:title" content="{%block ogtitle%}The Code Ship{% endblock %}"/>
+  <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
+  <meta property="og:site_name" content="The Code Ship"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:description" content="{% block ogdesc %}A journey into computer programming and software development.{% endblock %}"/>
   <link rel="shortcut icon" href="/favicon.png" />
   <link rel="stylesheet" href="{% static "css/style.css" %}" />
   <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
