@@ -41,11 +41,13 @@
         <div class="menu-main-container">
           <ul id="menu-main" class="menu">
             {% for category in all_categories %}
-              {% with catabs=category.get_absolute_url %}
-                <li><a href="{{catabs}}"
-                  {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.post_set.count}}</sup></a>
-                </li>
-              {% endwith %}
+              {% if category.post_set.count > 0 %}
+                {% with catabs=category.get_absolute_url %}
+                  <li><a href="{{catabs}}"
+                    {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.post_set.count}}</sup></a>
+                  </li>
+                {% endwith %}
+              {% endif %}
             {% endfor %}
           </ul>
         </div>
