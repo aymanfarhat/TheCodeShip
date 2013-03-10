@@ -8,8 +8,14 @@ class LatestPostsFeed(Feed):
 	link="feeds"
 	description="Latest 10 blog posts on TheCodeShip"
 
-	def items(self):
-		return Post.objects.order_by('-created')[:10]
+	def get_object(self,request,*args,**kwargs):
+		if kwargs['count'] is None:
+			kwargs['count']=10
+		return kwargs['count']
+
+	def items(self,count):
+		print count
+		return Post.objects.order_by('-created')[:count]
 
 	def item_title(self,item):
 		return item.title

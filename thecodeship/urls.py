@@ -6,7 +6,7 @@ from blog.feeds import LatestPostsFeed
 admin.autodiscover()
 
 urlpatterns = patterns('',
-	url(r'^latest/feed/$',LatestPostsFeed()),
+	url(r'^feed/latest/?(?P<count>[0-9]+)?/$',LatestPostsFeed(),name="feed"),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$',IndexView.as_view(), name='home'),
     url(r'^tag/(?P<tagslug>[-\w]+)/$',TagsView.as_view(),name='showtag'),
