@@ -1,3 +1,4 @@
+# Django git ignore
 *~
 *.orig
 *.pyc
@@ -13,3 +14,10 @@ parts
 media/uploads
 tmp
 .DS_Store
+
+# Vim git ignore
+.*.s[a-w][a-z]
+*.un~
+Session.vim
+.netrwhist
+*~
