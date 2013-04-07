@@ -9,6 +9,7 @@ Minimalist personal blog built with Django.
 + New responsive layout based on the current design and style
 + Make a post page print friendly + print button
 + RSS link + subscription somewhere in new layout 
++ Allow admin to re-organize the category menu order(make it order elements by default by length small to large)
 
 ######Features:
 + Recieve requests from authenticated client to post new articles via JSON-RPC
