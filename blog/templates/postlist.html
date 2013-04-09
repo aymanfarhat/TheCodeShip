@@ -19,7 +19,7 @@
       <article>
         <header>
             <time datetime="{{post.created|naturaltime}}" pubdate>{{post.created|naturaltime|capfirst}}</time>
-            <h1><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h1>
+            <h2><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h2>
         </header>
         <p>
           {{post.content|truncatewords_html:50|striptags}}

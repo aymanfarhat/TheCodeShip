@@ -12,52 +12,50 @@
   <meta property="og:url" content="{{ request.build_absolute_uri }}"/>
   <meta property="og:site_name" content="The Code Ship"/>
   <meta property="og:type" content="blog"/>
-  <meta property="og:description" content="{% block ogdesc %}A journey into computer programming and software development.{% endblock %}"/>
+  <meta property="og:description" content="{% block ogdesc %}Sailing in a sea of code,journey into computer programming and software development.{% endblock %}"/>
   <link rel="shortcut icon" href="/favicon.png" />
-  <link rel="stylesheet" href="{% static "css/style.css" %}" />
+  <link rel="stylesheet" href="{% static "css/base.css" %}" />
+  <link rel="stylesheet" href="{% static "css/skeleton.css" %}" />
+  <link rel="stylesheet" href="{% static "css/layout.css" %}" />
   <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
   <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css" />
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   {% block optional_js %}{% endblock %}
 </head>
 <body>
-<div class="container">
-  <a id="scrollTop"></a>
-  {% block sharebar %}{% endblock%}
-  <div id="main" role="main">
-      {% block content %}{% endblock %}
-  </div>
-  <aside id="sidebar">
-    <div class="sidebarMain">
-      <header>
-        <h1><a href="{% url home %}">The Code Ship</a></h1>
-        <div class="flip">
-          <div class="logodesc">
-            <div class="logo"></div>
-          </div>
-        </div>
-      </header>
-      <nav role="navigation">
-        <div class="menu-main-container">
-          <ul id="menu-main" class="menu">
-            {% for category in all_categories %}
-              {% if category.post_set.count > 0 %}
-                {% with catabs=category.get_absolute_url %}
-                  <li><a href="{{catabs}}"
-                    {% if catabs == request.get_full_path %}class="selected"{% endif %}>{{category.name}} <sup>{{category.post_set.count}}</sup></a>
-                  </li>
-                {% endwith %}
-              {% endif %}
-            {% endfor %}
-          </ul>
-        </div>
-      </nav>
-    </div>
-    <div class="sidebarFoot">
-      A blog by <a href="http://aymanfarhat.com">Ayman Farhat</a> - built with <a href="http://www.djangoproject.com/">Django</a>
-    </div>
-  </aside>
-</div>
-{% block sharebarjs %}{% endblock %}
+	<div class="container">
+		<header class="four columns sidebar">
+			<h1><a href="{% url home %}">The Code Ship</a></h1>
+			<img class="logo" src="{% static "images/logo.png" %}" />
+			<h5>Sailing through a sea of code.</h5>
+			<hr />
+			<nav>
+				<ul class="menu">
+					{% for category in all_categories %}
+						{% if category.post_set.count > 0 %}
+							{% with catabs=category.get_absolute_url %}
+								<li>
+								<a href="{{catabs}}" {% if catabs == request.get_full_path %}class="selected"{%endif%}>{{category.name}}<sup>{{category.post_set.count}}</sup></a></li>
+							{% endwith %}
+						{% endif %}
+					{% endfor %}
+				</ul>
+			</nav>
+			<hr />
+			<div class="feed">
+				<a href="http://feeds.feedburner.com/thecodeship/yaMJ" target="_blank"><img src="{% static "images/rss.png"%}" />&nbsp; Subscribe in a reader</a><br />
+				<a href="http://feedburner.google.com/fb/a/mailverify?uri=thecodeship/yaMJ&amp;loc=en_US" target="_blank"><img src="{% static "images/mail.png"%}" />&nbsp; Subscribe via email</a>
+			</div>
+			<hr />
+			<div class="sidefoot">
+				Blog by <a href="http://aymanfarhat.com">Ayman Farhat</a>. Built with <a href="https://www.djangoproject.com/">Django</a>.
+			</div>
+		</header>
+		<div class="eleven columns content">
+			{%block content%}{%endblock%}
+		</div>
+		{% block sharebar %}{% endblock%}
+	</div>
+	{% block sharebarjs %}{% endblock %}
 </body>
 </html>

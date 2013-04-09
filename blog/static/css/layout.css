@@ -3,25 +3,25 @@
 body
 {
 	font-size: 15px;
-	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 	line-height: 1.22;
 	background-color: #efefef;
+}
+body,h1,h2,h3,h4,h5
+{
+	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 }
 
 .container{margin-top:10px;}
 
 header.sidebar{text-align:center;margin-right:15px;}
-header.sidebar h5{font-family: 'Cabin', Helvetica, Arial, sans-serif;}
+
 header.sidebar h1
 {
 	font-family: 'Lobster', Helvetica, Arial, sans-serif;
 	font-size: 35px;
 }
 
-header.sidebar nav ul.menu
-{
-	font-size:20px;
-}
+header.sidebar nav ul.menu { font-size:20px; }
 
 header.sidebar nav ul.menu li {line-height:20px;}
 header.sidebar nav ul.menu li a{font-weight:normal;}
@@ -42,10 +42,9 @@ header.sidebar .sidefoot{font-size:12px;}
 
 .content article header time{color:#9BA09E;font-size:12px;}
 
-.content article header h3 
+.content article header h2
 {
 	font-size:22px;
-	font-family: 'Cabin', Helvetica, Arial, sans-serif;
 }
 
 .content article ul.taglist 
@@ -79,7 +78,15 @@ sup
 
 /* #Page Styles
 ================================================== */
+.content article.post header h1
+{
+	font-size:28px;
+	line-height:35px;
+}
 
+.content article.post h2 { font-size:22px;}
+.content article.post h3 { font-size:18px;}
+.content article.post p {line-height:24px;}
 
 
 /* #Media Queries
