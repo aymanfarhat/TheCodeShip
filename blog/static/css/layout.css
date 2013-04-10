@@ -76,6 +76,8 @@ sup
 	font-size: 14px;
 }
 
+
+
 /* #Page Styles
 ================================================== */
 .content article.post header h1
@@ -87,7 +89,8 @@ sup
 .content article.post h2 { font-size:22px;}
 .content article.post h3 { font-size:18px;}
 .content article.post p {line-height:24px;}
-
+.content article.post code.inline{font-size:13px;}
+.content article.post code{font-family:monospace;font-size:14px;overflow-y:auto;overflow-x:auto;max-height:420px;}
 
 /* #Media Queries
 ================================================== */
