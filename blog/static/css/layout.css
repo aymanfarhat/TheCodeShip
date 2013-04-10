@@ -65,6 +65,8 @@ header.sidebar .sidefoot{font-size:12px;}
 	margin-bottom:10px;
 }
 
+.content article #sharebar{margin-top:15px;margin-bottom:25px;}
+
 ul.taglist li a{color:#9BA09E;font-weight:normal;}
 ul.taglist li a:hover{color:#a3806e;}
 a {color:#333;text-decoration:none;font-weight:bold;}
@@ -75,8 +77,6 @@ sup
 	vertical-align: super;
 	font-size: 14px;
 }
-
-
 
 /* #Page Styles
 ================================================== */
