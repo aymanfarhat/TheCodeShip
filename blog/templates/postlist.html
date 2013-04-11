@@ -6,6 +6,7 @@
 <script type="text/javascript">
   $(document).ready(function()
   {
+  	hasNextPage = ($('ul.postlist').data('numpages') > 1)
     $(window).bind('scroll',loadOnScroll);
     $(window).bind('scroll',showScrollToTop);
     $('#scrollTop').bind('click',scrollUp);
@@ -13,7 +14,7 @@
 </script>
 {% endblock %}
 {% block content %}
-<ul class="postlist">
+<ul class="postlist" data-numpages="{{paginator.num_pages}}">
   {% for post in posts %}
     <li>
       <article>
@@ -21,9 +22,7 @@
             <time datetime="{{post.created|naturaltime}}" pubdate>{{post.created|naturaltime|capfirst}}</time>
             <h2><a href="{{post.get_absolute_url}}" rel="bookmark" title="{{post.title}}">{{post.title}}</a></h2>
         </header>
-        <p>
-          {{post.content|truncatewords_html:50|striptags}}
-        </p>
+        <p>{{post.content|truncatewords_html:50|striptags}}</p>
         <ul class="taglist">
           {% for tag in post.tags.all %}
             <li><a href="{%url showtag tag%}">#{{tag}}</a></li>
@@ -32,11 +31,23 @@
         </ul>
         <p><a href="{{post.get_absolute_url}}" class="more-link">Read more &#9660;</a></p>
       </article>
-
     </li>
   {% empty %}
       We couldn't find any under this tag to show, come back later!
   {% endfor %}
 </ul>
 <div class="postloading"><div class="spinner"></div></div>
+{% endblock %}
+{% block templates %}
+	<script type="text/html" id="post_template">
+		<article>
+			<header>
+				<time datetime="$created" pubdate>$created</time>
+				<h2><a href="$abs_url" rel="bookmark" title="$title">$title</a></h2>
+			</header>
+			<p>$content</p>
+			<ul class="taglist">$tags</ul>
+			<p><a href="$abs_url" class="more-link">Read more &#9660;</a></p>
+		</article>
+	</script>
 {% endblock %}
