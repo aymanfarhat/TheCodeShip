@@ -22,9 +22,9 @@ header.sidebar h1
 }
 
 header.sidebar nav ul.menu { font-size:20px; }
-
 header.sidebar nav ul.menu li {line-height:20px;}
 header.sidebar nav ul.menu li a{font-weight:normal;}
+header.sidebar nav ul.menu li a.selected{color:#a3806e;}
 
 header.sidebar .feed{line-height:25px;}
 header.sidebar .feed a {font-weight:normal;}
