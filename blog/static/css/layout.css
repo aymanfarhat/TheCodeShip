@@ -68,7 +68,7 @@ header.sidebar .sidefoot{font-size:12px;}
 .content article #sharebar{margin-top:15px;margin-bottom:25px;}
 
 ul.taglist li a{color:#9BA09E;font-weight:normal;}
-ul.taglist li a:hover{color:#a3806e;}
+ul.taglist li a:hover, ul.taglist li a.selected{color:#a3806e;}
 a {color:#333;text-decoration:none;font-weight:bold;}
 a:hover{color:#a3806e;}
 

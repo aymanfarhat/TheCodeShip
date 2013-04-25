@@ -25,7 +25,8 @@
         <p>{{post.content|truncatewords_html:50|striptags}}</p>
         <ul class="taglist">
           {% for tag in post.tags.all %}
-            <li><a href="{%url showtag tag%}">#{{tag}}</a></li>
+		  {% url showtag tag as tag_url %}
+            <li><a href="{{tag_url}}" {%if tag_url == request.get_full_path%}class="selected"{%endif%}>#{{tag}}</a></li>
           {% endfor %}
           <div class="clear"></div>
         </ul>
