@@ -7,7 +7,6 @@
   {
   	hasNextPage = ($('ul.postlist').data('numpages') > 1)
     $(window).bind('scroll',loadOnScroll);
-    $(window).bind('scroll',showScrollToTop);
     $('#scrollTop').bind('click',scrollUp);
   });
 
@@ -90,19 +89,6 @@
       return typeof args[number] != 'undefined'? args[number]:match;
     });
   };
-
-  /* Show scroll to top button after the user scrolls */
-  var showScrollToTop = function()
-  {
-    if($(this).scrollTop() > 300)
-    {
-      $('#scrollTop').css('display','block');
-    }
-    else 
-    {
-      $('#scrollTop').css('display','none');
-    }
-  }
 
   /* Scrolls the window upward slowly */
   var scrollUp = function()
