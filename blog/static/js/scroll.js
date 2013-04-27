@@ -1,6 +1,14 @@
-  /* Javascript for the infinite ajax scrolling and back to top scrolling */
+/*
+* TheCodeShip version 2
+* Copyright 2013, Ayman Farhat
+* www.thecodeship.com
+* Free to use under the GNU General Public License 3
+* http://www.gnu.org/copyleft/gpl.html
+*/
+  
+  /* Infinite ajax scrolling and back to top scrolling */
   var pageNum = 1;
-  var hasNextPage;
+  ivar hasNextPage;
   var baseUrl = location.href;
 
   $(document).ready(function()
