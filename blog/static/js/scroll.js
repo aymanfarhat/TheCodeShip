@@ -8,7 +8,7 @@
   
   /* Infinite ajax scrolling and back to top scrolling */
   var pageNum = 1;
-  ivar hasNextPage;
+  var hasNextPage;
   var baseUrl = location.href;
 
   $(document).ready(function()
