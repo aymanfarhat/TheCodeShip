@@ -7,30 +7,22 @@
 {% block ogtitle %}{{post.title}} | The Code Ship{% endblock %}
 {% block ogdesc %}{{post.content|truncatewords_html:35|striptags}}{% endblock %}
 {% block optional_js %}
-<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
-<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<link rel="stylesheet" href="{% static "css/highlightjs/tomorrow-night-eighties.css" %}" />
+<script src="{% static "js/highlightjs/highlight.min.js" %}"></script>
 <script type="text/javascript" src="{% static "js/scroll.js" %}"></script>
 <script type="text/javascript">
   $(document).ready(function()
   {
   	hljs.tabReplace = '    ';
-  	hljs.initHighlightingOnLoad();
-
+	$('code').each(function(i,e){hljs.highlightBlock(e);});
     $(window).bind('scroll',showScrollToTop);
     $('#scrollTop').bind('click',scrollUp);
   });
 </script>
 {% endblock %}
 {% block title %}{{post.title}} | The Code Ship{% endblock %}
-{% block sharebar %}
-<div id="sharebar">
-      <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
-      <a class="addthis_button_tweet" tw:count="vertical"></a>
-      <a class="addthis_button_google_plusone" g:plusone:size="tall"></a>
- </div>
-{% endblock %}
 {% block content %}
-	<article>
+	<article class="post">
 		<header>
 			<time datetime="{{post.created|naturaltime}}">{{post.created|naturaltime|capfirst}}</time>
 			<h1>{{post.title}}</h1>
@@ -44,6 +36,19 @@
 			{% endfor %}
 		<div class="clear"></div>
 		</ul>
+		<a href="#" id="scrollTop">&uarr; Back to top</a>
+		<div id="sharebar">
+			<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+			<a class="addthis_button_preferred_1"></a>
+			<a class="addthis_button_preferred_2"></a>
+			<a class="addthis_button_preferred_3"></a>
+			<a class="addthis_button_preferred_4"></a>
+			<a class="addthis_button_compact"></a>
+			<a class="addthis_counter addthis_bubble_style"></a>
+		</div>
+		<script type="text/javascript">var addthis_config = {"data_track_addressbar":false};</script>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5165a84d1a2a1ff3"></script>
+		</div>
 	</article>
 	<div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -55,7 +60,4 @@
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-{% endblock %}
-{% block sharebarjs %}
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5102b41029aef194"></script>
 {% endblock %}

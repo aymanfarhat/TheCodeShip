@@ -1,7 +1,22 @@
-  /* Javascript for the infinite ajax scrolling and back to top scrolling */
+/*
+* TheCodeShip version 2
+* Copyright 2013, Ayman Farhat
+* www.thecodeship.com
+* Free to use under the GNU General Public License 3
+* http://www.gnu.org/copyleft/gpl.html
+*/
+  
+  /* Infinite ajax scrolling and back to top scrolling */
   var pageNum = 1;
-  var hasNextPage = true;
+  ivar hasNextPage;
   var baseUrl = location.href;
+
+  $(document).ready(function()
+  {
+  	hasNextPage = ($('ul.postlist').data('numpages') > 1)
+    $(window).bind('scroll',loadOnScroll);
+    $('#scrollTop').bind('click',scrollUp);
+  });
 
   /* Detect end of page scroll */
   var loadOnScroll = function()
@@ -16,32 +31,29 @@
   /* Get posts in JSON format, build html list code and append it to end */
   var loadItems = function()
   {
-    if (hasNextPage == false)
-      return false;
-
-    else
+    if(hasNextPage === true)
     {
       pageNum++;
-      var url = baseUrl+'?page='+pageNum;
+      
+	  var url = baseUrl+'?page='+pageNum;
 
       $.ajax({
         url:url,
-        dataType:'json',
         beforeSend:function()
         {
           $('.spinner').css('display','block');
         },
         success:function(data)
         {
-          $(".postlist").append(buildHtml(data));
-          hasNextPage = data.hasNext;
-          console.log(data.hasNext);
+		  dataObj = jQuery.parseJSON(data);
+		  hasNextPage = dataObj.hasNext;
+          $(".postlist").append(buildHtml(dataObj));
         },
         complete:function(data)
         {
           $('.spinner').css('display','none');
           $(window).bind('scroll',loadOnScroll);
-        }
+		},
       });
     }
   }
@@ -49,13 +61,31 @@
   /* Glues the data in JSON to an html string for appending it later */
   function buildHtml(data)
   {
-    var html = '';
+    var post_html = '';
     var posts = data.itemList;
+	var template = $('#post_template').html();
 
-    for(var i = 0; i < posts.length; i++)
-      html += '<li><article><header><time datetime="{0}" pubdate>{0}</time><h1><a href="{1}" rel="bookmark" title="{2}">{2}</a></h1></header><p>{3}</p><p><a href="{1}" class="more-link">Read more &#9660;</a></p></article></li>'.format(posts[i].created,posts[i].url,posts[i].title,posts[i].excerpt);
-    
-    return html;
+    for(var i in posts)
+	{
+		var tags_html = '';
+		var post = posts[i];
+		var taglist = post.tags;
+
+		for(var k in taglist)
+			tags_html += '<li><a href="{0}">{1}</a></li>'.format(taglist[k].url,taglist[k].name);
+		
+		tags_html += '<div class="clear"></div>';
+
+		var article_html = template
+						 .replace(/\$created/g,post.created)
+						 .replace(/\$abs_url/g,post.url)
+						 .replace(/\$title/g,post.title)
+						 .replace(/\$content/g,post.excerpt)
+						 .replace(/\$tags/g,tags_html);
+		
+		post_html += "<li>"+article_html+"</li>";
+	}
+    return post_html;
   }
 
   /* String.format for building strings */
@@ -67,19 +97,6 @@
       return typeof args[number] != 'undefined'? args[number]:match;
     });
   };
-
-  /* Show scroll to top button after the user scrolls */
-  var showScrollToTop = function()
-  {
-    if($(this).scrollTop() > 300)
-    {
-      $('#scrollTop').css('display','block');
-    }
-    else 
-    {
-      $('#scrollTop').css('display','none');
-    }
-  }
 
   /* Scrolls the window upward slowly */
   var scrollUp = function()
