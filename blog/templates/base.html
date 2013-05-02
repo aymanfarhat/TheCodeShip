@@ -19,7 +19,11 @@
   <link rel="stylesheet" href="{% static "css/layout.css" %}" />
   <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
   <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css" />
-  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+		if(typeof jQuery == 'undefined')
+			document.write(unescape("%3Cscript src='{% static "js/jquery.min.js"%}' type='text/javascript'%3E%3C/script%3E"));
+   </script>
   {% block optional_js %}{% endblock %}
 </head>
 <body>
