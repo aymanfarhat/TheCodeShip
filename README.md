@@ -13,6 +13,7 @@ Minimalist personal blog built with Django.
 + Apps installed: TinyMCE, taggit(for post tags)
 
 #####Todo:
++ Templates for error pages(404 and 500)
 + Print friendly CSS + print hyperlink for posts
 + Allow admin to re-organize the category menu order(make it order elements by default by length small to large)
 + View to receive requests from authenticated client to post new articles via JSON-RPC
