@@ -19,5 +19,6 @@ Minimalist personal blog built with Django.
 + View to receive requests from authenticated client to post new articles via JSON-RPC
 + Add status option to a post(draft or published)
 + Show comment count for a post in posts listing
-
++ Quick tips section/category for brief posts(Still not sure about layout, design and location)
++ 
 The code is released under the [GNU General Public License 3](http://www.gnu.org/copyleft/gpl.html).
