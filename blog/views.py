@@ -16,11 +16,11 @@ class ListPosts(ListView):
 			return ['postlist.html']
 
 class IndexView(ListPosts):
-	queryset = Post.objects.order_by('-created')
+	queryset = Post.objects.filter(published=True).order_by('-created')
 
 class CategoryView(ListPosts):
 	def get_queryset(self):
-		return Post.objects.filter(category__slug=self.kwargs['slug']).order_by('-created')
+		return Post.objects.filter(category__slug=self.kwargs['slug'],published=True).order_by('-created')
 
 class TagsView(ListPosts):
 	def get_queryset(self):
@@ -31,4 +31,4 @@ class ShowPost(DetailView):
 	context_object_name='post'
 
 	def get_object(self):
-		return get_object_or_404(Post.objects.filter(category__slug=self.kwargs['catslug'],slug=self.kwargs['postslug']))
+		return get_object_or_404(Post.objects.filter(category__slug=self.kwargs['catslug'],slug=self.kwargs['postslug'],published=True))
