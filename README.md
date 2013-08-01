@@ -20,5 +20,6 @@ Minimalist personal blog built with Django.
 + Show comment count for a post in posts listing
 + Quick tips section/category for brief posts(Still not sure about layout, design and location)
 + Some more content and styling to error pages
-
++ Highly customized administration for managing content independant of Django admin
++ 
 The code is released under the [GNU General Public License 3](http://www.gnu.org/copyleft/gpl.html).
