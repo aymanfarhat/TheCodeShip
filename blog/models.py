@@ -14,6 +14,9 @@ class Post(models.Model):
     author = models.ForeignKey(User)
     category = models.ForeignKey('Category')
     published = models.BooleanField(default=False)
+    
+    class Meta:
+        verbose_name_plural = "Posts"
 
     def __unicode__(self):
         return "%s" % self.title
