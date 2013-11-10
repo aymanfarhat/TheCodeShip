@@ -1,4 +1,4 @@
 {% load humanize %}
 {% spaceless %}
-{"page":{{ page_obj.number }},"hasNext":{{ page_obj.has_next|lower }},"itemList":[{% for post in posts %}{"title":"{{post.title}}","url":"{{post.get_absolute_url}}","excerpt":"{{post.content|truncatewords_html:50|safe}}","created":"{{post.created|naturaltime}}","tags":[{% for tag in post.tags.all %}{"name":"#{{tag}}","url":"{% url showtag tag %}"}{% if not forloop.last %},{% endif %}{% endfor %}]}{% if not forloop.last %},{% endif %}{% endfor %}]}
+{"page":{{ page_obj.number }},"hasNext":{{ page_obj.has_next|lower }},"itemList":[{% for post in posts %}{"title":"{{post.title}}","url":"{{post.get_absolute_url}}","excerpt":"{{post.content|truncatewords_html:50|safe}}","created":"{{post.created|naturaltime}}","tags":[{% for tag in post.tags.all %}{"name":"{{tag}}","url":"{% url showtag tag %}"}{% if not forloop.last %},{% endif %}{% endfor %}]}{% if not forloop.last %},{% endif %}{% endfor %}]}
 {% endspaceless %}

@@ -31,7 +31,7 @@
 		</p>
 		<ul class="taglist">
 			{% for tag in post.tags.all %}
-				<li><a href="{%url showtag tag%}">#{{tag}}</a></li>
+				<li><a href="{%url showtag tag%}">{{tag}}</a></li>
 			{% endfor %}
 		<div class="clear"></div>
 		</ul>
