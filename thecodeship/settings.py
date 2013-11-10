@@ -121,7 +121,7 @@ INSTALLED_APPS = (
     'taggit',
     'django.contrib.admin',
     'tinymce',
-
+    'south',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

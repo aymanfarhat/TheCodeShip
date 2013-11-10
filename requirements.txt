@@ -1,5 +1,6 @@
 Django==1.4.5
 MySQL-python==1.2.4
+South==0.8.2
 argparse==1.2.1
 django-taggit==0.9.3
 django-tinymce==1.5.1b4
