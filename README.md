@@ -24,3 +24,7 @@ Minimalist personal blog built with Django.
 + Generate slug from title and make it non editable
 
 The code is released under the [GNU General Public License 3](http://www.gnu.org/copyleft/gpl.html).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/aymanfarhat/thecodeship/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
