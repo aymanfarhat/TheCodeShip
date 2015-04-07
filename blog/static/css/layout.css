@@ -43,7 +43,7 @@ header.sidebar .sidefoot{font-size:12px;}
 	border-left:1px #ddd solid;
 	padding-left:25px;
 }
-
+.content .postlist li {list-style-type:none;}
 .content .postlist li article{margin-bottom:40px;}
 
 .content .postlist li article a{font-weight:normal;}
