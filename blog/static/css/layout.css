@@ -30,7 +30,7 @@ header.sidebar h1
 }
 
 header.sidebar nav ul.menu { font-size:20px; }
-header.sidebar nav ul.menu li {line-height:20px;}
+header.sidebar nav ul.menu li {line-height:20px; margin-left: 0; list-style-type: none;}
 header.sidebar nav ul.menu li a{font-weight:normal;}
 header.sidebar nav ul.menu li a.selected{color:#a3806e;}
 
@@ -66,6 +66,8 @@ header.sidebar .sidefoot{font-size:12px;}
 {
 	float: left;
 	margin-right: 8px;
+    list-style-type:none;
+    margin-left:0;
 }
 
 .content article ul.taglist li p
