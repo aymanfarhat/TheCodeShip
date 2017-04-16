@@ -19,7 +19,6 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
@@ -34,6 +33,8 @@ DEFAULT_PAGINATION = 10
 
 ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
 ARTICLE_URL = '{category}/{slug}'
+
+THEME = './themes/simple'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
