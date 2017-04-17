@@ -30,7 +30,8 @@
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
         {% endblock head %}
-
+        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"/>
+        <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css"/>
         {% assets filters="scss,cssmin", output="css/style.min.css", "scss/style.scss" %}
         <link rel="stylesheet" type="text/css" href="/{{ ASSET_URL }}" />
         {% endassets %}
@@ -41,7 +42,8 @@
         <div class="row">
             <div class="one-fourth column">
                 <header id="banner" class="body">
-                        <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+                    <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+                    <img src="http://thecodeship.com/static/images/logo.png" alt="">
                 </header><!-- /#banner -->
                 <nav id="menu"><ul>
                 {% for title, link in MENUITEMS %}
@@ -67,7 +69,7 @@
                         </address><!-- /#about -->
                 </footer><!-- /#contentinfo -->
             </div>
-            <div class="three-fourth column">
+            <div class="three-fourth column" id="body">
                 {% block content %}
                 {% endblock %}
             </div>

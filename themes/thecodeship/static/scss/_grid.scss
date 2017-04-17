@@ -1,0 +1,50 @@
+.container {
+    margin: 0 auto;
+    padding: 0 10px;
+    max-width: 1000px;
+}
+
+.row::before, .row::after {
+    display: table;
+    content: " ";
+    clear: both;
+}
+
+.one,
+.one-third,
+.two-thirds,
+.one-fourth,
+.three-fourth,
+.half {
+    width: 100%;
+}
+
+@mixin wideTablet {
+    @media (min-width: 800px) {
+        @content;
+    }
+}
+
+@include wideTablet {
+    .one {
+        width: 100%;
+    }
+    .half {
+        width: calc(100% / 2);
+    }
+    .one-third {
+        width: calc(100% / 3);
+    }
+    .one-fourth {
+        width: calc(100% / 4);
+    }
+    .three-fourth {
+        width: calc((100% / 4) * 3);
+    }
+    .two-thirds {
+        width: calc(100% / 3 * 2);
+    }
+    .column {
+        float: left;
+    }
+}

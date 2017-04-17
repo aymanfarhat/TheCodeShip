@@ -1,4 +1,6 @@
 @import 'normalize';
+@import 'variables';
+@import 'grid';
 
 html {
     box-sizing: border-box;
@@ -8,85 +10,56 @@ html {
     box-sizing: inherit;
 }
 
-$blue: #4183c4;
+#banner h1 {
+        font-family: 'Lobster',Helvetica,Arial,sans-serif;
+        font-size: 35px;
+        color: $headerBlack;
+}
+
+#content {
+    border-left: 1px #ddd solid;
+        padding-left: 25px;
+}
+
+article header h2.entry-title {
+    margin-top: 5px;
+}
+
+article time {
+    color: $darkGrey;
+    font-size: 12px;
+}
+
+article header h2 a {
+    font-weight: normal;
+}
+
+#post-list li {
+    margin-bottom: 50px;
+}
 
 body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
+    background-color: $bggrey;
+    font-family:'Cabin',Helvetica,Arial,sans-serif;
+    font-weight: normal;
 }
 
-a:link    { color : $blue; text-decoration : none ;      }
-a:hover   { color : $blue; text-decoration : underline ; }
-a:visited { color : $blue;                               }
+a { color : $black; text-decoration : none ;      }
+a:hover { color : $brown; }
 
-pre {
-    margin : 2em 1em 2em 4em ;
-}
 
-#menu li {
-    display : inline ;
+/* Mobile first styles go first */
+h1 {
+    font-size: 1.5rem;
 }
 
 #post-list {
-    margin-bottom : 1em ;
-    margin-top : 1em ;
+    list-style-type: none;  
 }
 
-/* Mobile first styles go here */
-h1 {
-    font-size: 1.5rem;
-    }
-
-@media screen and (min-width: 800px) {
+@include wideTablet {
     h1 {
-        font-size: 2rem;
-    }
-}
-
-.container {
-  margin: 0 auto;
-    padding: 0 10px;
-  max-width: 1000px;
-  }
-
-  .row::before,
-  .row::after {
-    display: table;
-  content: " ";
-    clear: both;
-}
-
-.one,
-.one-third,
-.two-thirds,
-.one-fourth,
-.three-fourth,
-.half {
-  width: 100%;
-  }
-
-@media only screen and (min-width: 800px) {
-  .one {
-      width: 100%;
-    }
-  .half {
-      width: calc(100% / 2);
-    }
-  .one-third {
-      width: calc(100% / 3);
-    }
-  .one-fourth {
-      width: calc(100% / 4);
-    }
-
-  .three-fourth {
-      width: calc((100% / 4) * 3);
-    }
-
-  .two-thirds {
-      width: calc(100% / 3 * 2);
-    }
-  .column {
-      float: left;
+        font-size: 2rem; 
     }
 }
