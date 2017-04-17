@@ -29,9 +29,9 @@
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
         {% endblock head %}
-        
-        {% assets filters="cssmin", output="css/style.min.css", "css/style.css" %}
-        <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}" />
+
+        {% assets filters="scss,cssmin", output="css/style.min.css", "scss/style.scss" %}
+        <link rel="stylesheet" type="text/css" href="/{{ ASSET_URL }}" />
         {% endassets %}
 </head>
 

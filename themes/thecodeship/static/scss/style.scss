@@ -1,0 +1,21 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+
+    a:link    { color : #4183c4 ; text-decoration : none ;      }
+    a:hover   { color : #4183c4 ; text-decoration : underline ; }
+    a:visited { color : #4183c4 ;                               }
+
+    pre {
+        margin : 2em 1em 2em 4em ;
+    }
+
+    #menu li {
+        display : inline ;
+    }
+
+    #post-list {
+        margin-bottom : 1em ;
+        margin-top : 1em ;
+    }
+}
