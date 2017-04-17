@@ -31,8 +31,14 @@ SOCIAL = (('You can add links in your config file', '#'),
 
 DEFAULT_PAGINATION = 10
 
-ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
 ARTICLE_URL = '{category}/{slug}'
+ARTICLE_SAVE_AS = '{category}/{slug}/index.html'
+CATEGORY_URL = '{name}'
+CATEGORY_SAVE_AS = '{name}/index.html'
+AUTHOR_URL = 'author/{slug}'
+AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+TAG_URL = 'tag/{slug}'
+TAG_SAVE_AS = 'tag/{slug}/index.html}'
 
 THEME = './themes/thecodeship'
 
