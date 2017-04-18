@@ -43,35 +43,19 @@
             <div class="one-fourth column" id="main-sidebar">
                 <header id="banner" class="body">
                     <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
-                    <img src="http://thecodeship.com/static/images/logo.png" alt="">
+                    <img src="{{ SITEURL }}/theme/images/logo.png" alt="">
                     <h4>Sailing through a sea of code</h4>
                     <hr>
                 </header><!-- /#banner -->
                 <nav id="menu"><ul>
-                {% for title, link in MENUITEMS %}
-                    <li><a href="{{ link }}">{{ title }}</a></li>
-                {% endfor %}
-                {% if DISPLAY_PAGES_ON_MENU %}
-                  {% for p in pages %}
-                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-                  {% endfor %}
-                {% else %}
                   {% if DISPLAY_CATEGORIES_ON_MENU %}
                     {% for cat, null in categories %}
                       <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                     {% endfor %}
                   {% endif %}
-                {% endif %}
                 </ul></nav><!-- /#menu -->
-
-                <footer id="contentinfo" class="body">
-                        <address id="about" class="vcard body">
-                        Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                        which takes great advantage of <a href="http://python.org">Python</a>.
-                        </address><!-- /#about -->
-                </footer><!-- /#contentinfo -->
             </div>
-            <div class="three-fourth column" id="body">
+            <div class="three-fourth column" id="main-content">
                 {% block content %}
                 {% endblock %}
             </div>

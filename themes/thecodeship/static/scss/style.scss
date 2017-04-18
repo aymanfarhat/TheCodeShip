@@ -10,6 +10,13 @@ html {
     box-sizing: inherit;
 }
 
+body {
+    color: #333;
+    background-color: $bggrey;
+    font-family:'Cabin',Helvetica,Arial,sans-serif;
+    font-weight: normal;
+}
+
 #banner h1 {
         font-family: 'Lobster',Helvetica,Arial,sans-serif;
         font-size: 35px;
@@ -17,7 +24,7 @@ html {
         color: $headerBlack;
 }
 
-#content {
+#main-content {
     border-left: 1px #ddd solid;
         //padding-left: 25px;
 }
@@ -53,14 +60,7 @@ article header h2 a {
     margin-bottom: 50px;
 }
 
-body {
-    color: #333;
-    background-color: $bggrey;
-    font-family:'Cabin',Helvetica,Arial,sans-serif;
-    font-weight: normal;
-}
-
-a { color : $black; text-decoration : none ;      }
+a { color : $black; text-decoration : none; }
 a:hover { color : $brown; }
 
 
@@ -74,11 +74,11 @@ h1 {
 }
 
 hr {
-border: solid #ddd;
+    border: solid #ddd;
     border-width: 1px 0 0;
-        clear: both;
-            margin: 10px 0 30px;
-                height: 0;
+    clear: both;
+    margin: 10px 0 30px;
+    height: 0;
 }
 
 @include wideTablet {
