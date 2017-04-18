@@ -13,12 +13,27 @@ html {
 #banner h1 {
         font-family: 'Lobster',Helvetica,Arial,sans-serif;
         font-size: 35px;
+        font-weight: normal;
         color: $headerBlack;
 }
 
 #content {
     border-left: 1px #ddd solid;
-        padding-left: 25px;
+        //padding-left: 25px;
+}
+
+#main-sidebar {
+    padding: 0 10px 0 10px;
+    text-align: center;
+}
+
+.entry-content {
+    font-size: 15px;
+    line-height: 21px;
+}
+
+article {
+    font-weight: normal;
 }
 
 article header h2.entry-title {
@@ -56,6 +71,14 @@ h1 {
 
 #post-list {
     list-style-type: none;  
+}
+
+hr {
+border: solid #ddd;
+    border-width: 1px 0 0;
+        clear: both;
+            margin: 10px 0 30px;
+                height: 0;
 }
 
 @include wideTablet {

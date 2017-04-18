@@ -40,10 +40,12 @@
 <body id="index" class="home">
     <div class="container">
         <div class="row">
-            <div class="one-fourth column">
+            <div class="one-fourth column" id="main-sidebar">
                 <header id="banner" class="body">
                     <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
                     <img src="http://thecodeship.com/static/images/logo.png" alt="">
+                    <h4>Sailing through a sea of code</h4>
+                    <hr>
                 </header><!-- /#banner -->
                 <nav id="menu"><ul>
                 {% for title, link in MENUITEMS %}
