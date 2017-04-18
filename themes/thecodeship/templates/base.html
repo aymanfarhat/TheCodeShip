@@ -47,13 +47,15 @@
                     <h4>Sailing through a sea of code</h4>
                     <hr>
                 </header><!-- /#banner -->
-                <nav id="menu"><ul>
-                  {% if DISPLAY_CATEGORIES_ON_MENU %}
-                    {% for cat, null in categories %}
-                      <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
-                    {% endfor %}
-                  {% endif %}
-                </ul></nav><!-- /#menu -->
+                <nav id="menu">
+                    <ul>
+                      {% if DISPLAY_CATEGORIES_ON_MENU %}
+                        {% for cat, articles in categories %}
+                        <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}<sup>{{ articles | count }}</sup></a></li>
+                        {% endfor %}
+                      {% endif %}
+                    </ul>
+                </nav><!-- /#menu -->
             </div>
             <div class="three-fourth column" id="main-content">
                 {% block content %}

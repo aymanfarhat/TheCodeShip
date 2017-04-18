@@ -1,6 +1,7 @@
 Title: Deploy Django on Apache with Virtualenv and mod_wsgi
 Date: 2013-03-03 04:03
 Slug: deploy-django-on-apache-with-virtualenv-and-mod_wsgi
+Category: Deployment
 
 I have recently got into Django and built a small project with it which
 is this blog. Then came the time for me to deploy the project on an
