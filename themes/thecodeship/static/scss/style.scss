@@ -13,21 +13,39 @@ html {
 body {
     color: #333;
     background-color: $bggrey;
+    font-family: 'Open Sans', sans-serif;
+
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
     font-family:'Cabin',Helvetica,Arial,sans-serif;
     font-weight: normal;
 }
 
-#banner h1 {
+.container {
+    margin-top: 10px;
+}
+
+#banner {
+    h1 {
         font-family: 'Lobster',Helvetica,Arial,sans-serif;
         font-size: 35px;
-        font-weight: normal;
         color: $headerBlack;
+        margin-top: 0;
+    }
+
+    h4 {
+        margin-bottom: 4px;
+        margin-top: 4px;
+    }
 }
+
 
 #content {
     border-left: 1px #ddd solid;
     padding-left: 50px;
-    margin-top: 25px;
+    margin-top: 0;
 }
 
 #main-sidebar {
@@ -35,9 +53,20 @@ body {
     text-align: center;
 }
 
+.entry-title {
+    font-size: 22px;
+}
+
+h1.entry-title-article {
+    margin-top: 5px;
+    line-height: 35px;
+   font-size: 28px;
+}
+
+
 .entry-content {
     font-size: 15px;
-    line-height: 21px;
+    line-height: 24px;
 }
 
 article {
@@ -53,6 +82,7 @@ article {
                 font-weight: normal;
             }
         }
+
     }
 
 }
