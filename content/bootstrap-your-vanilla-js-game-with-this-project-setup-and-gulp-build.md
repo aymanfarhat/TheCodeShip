@@ -2,6 +2,7 @@ Title: Bootstrap your vanilla JS game with this project setup and gulp build
 Date: 2016-08-14 06:00
 Slug: bootstrap-your-vanilla-js-game-with-this-project-setup-and-gulp-build
 Summary:Building your own vanilla HTML5 game without dependencies might sound like a tough and odd job to do. In fact, it's a really fun experience and a huge opportunity to sharpen your JS and general programming skills. One awesome competition that empowers this movement is the JS13K competition. It ...
+Tags: gulp, canvas, project, build, js13k, structure, html5
 
 Building your own vanilla HTML5 game without dependencies might sound like a tough and odd job to do. In fact, it's a really fun experience and a huge opportunity to sharpen your JS and general programming skills.
 

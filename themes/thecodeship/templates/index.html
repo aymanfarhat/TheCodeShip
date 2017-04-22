@@ -9,10 +9,15 @@
                 <header> <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
                 <div class="entry-content"> {{ article.summary }} </div><!-- /.entry-content -->
                 <footer class="post-info">
+                    {% if article.tags %}
+                    <ul class="taglist">
                     {% for tag in article.tags %}
-                        <a class="url fn" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                        <li><a class="url fn" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a></li>
                     {% endfor %}
+                    </ul>
+                    {% endif %}
                 </footer><!-- /.post-info -->
+                <div class="clearfix" style="clear:both;"></div>
         </article></li>
 {% endfor %}
 </ul><!-- /#posts-list -->

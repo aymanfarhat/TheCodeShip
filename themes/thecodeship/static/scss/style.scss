@@ -97,7 +97,7 @@ time.published {
     margin: 0;
     padding: 0;
 
-    li {
+    article.hentry {
         margin-bottom: 50px;
     }
 }
@@ -115,6 +115,32 @@ time.published {
 
         &:first-child {
             margin-top: 0; 
+        }
+    }
+}
+
+ul.taglist {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    clear: both;
+
+    li {
+        float: left;
+        margin-right: 8px;
+        list-style-type: none;
+        margin-left: 0;
+
+        a {
+            color: $darkGrey; 
+            font-size: 14px;
+            &:before {
+                content: "#"; 
+            }
+
+            &:hover {
+                color: $brown; 
+            }
         }
     }
 }
