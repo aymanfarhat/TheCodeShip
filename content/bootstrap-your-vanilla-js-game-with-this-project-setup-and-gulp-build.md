@@ -47,7 +47,7 @@ Everything related to the source of the project would go under src which would c
 Entry point
 Also notice that index.html is at the root of the src folder, which is the entry point to our game, in it we'd initialise the canvas and include all dependencies. This would be the non-compiled version which would run on the local dev server and looks something like this:
 
-```
+```html
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -88,7 +88,7 @@ As for the logic of different characters or entities related to the game such as
 
 The code for such a module would look something like this:
 
-```
+```javascript
 "use strict";
 
 $.RandomObj = function () {
@@ -121,7 +121,7 @@ Calling randomObjectInstance.update() would trigger the change to be done on tha
 
 The game loop itself would be as simple as an infinite loop that triggers a render and update calls on each iteration on all the game objects available in the world. Example:
 
-```
+```javascript
 $.loop = function () {
     $.render();
     $.update();

@@ -1,6 +1,7 @@
 @import 'normalize';
 @import 'variables';
 @import 'grid';
+@import 'syntax';
 
 html {
     box-sizing: border-box;
@@ -143,6 +144,14 @@ ul.taglist {
             }
         }
     }
+}
+
+.highlight pre {
+    padding: 0.5em;
+    font-size: 14px;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 700px;
 }
 
 a { color : $black; text-decoration : none; }
