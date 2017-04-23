@@ -46,6 +46,14 @@ h1, h2, h3, h4, h5, h6, #menu {
     border-left: 1px #ddd solid;
     padding-left: 50px;
     margin-top: 0;
+
+    .entry-content {
+        a {
+            color:$brown ;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
 }
 
 #main-sidebar {
