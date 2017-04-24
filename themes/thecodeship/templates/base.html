@@ -58,6 +58,9 @@
                       {% endif %}
                     </ul>
                 </nav><!-- /#menu -->
+                {% if GOOGLE_ADS_SIDEBAR %}
+                    {{ GOOGLE_ADS_SIDEBAR }}
+                {% endif %}
             </div>
             <div class="three-fourth column">
                 {% block content %}

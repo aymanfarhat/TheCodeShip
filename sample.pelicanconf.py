@@ -53,5 +53,5 @@ PLUGINS = ['assets']
 DEFAULT_DATE_FORMAT = ('%B %d, %Y')
 DEFAULT_CATEGORY = 'General'
 
-# Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+GOOGLE_ADS_SIDEBAR='<strong>the adds will go here</strong>'
+GOOGLE_ADS_ARTICLE_BOTTOM='<strong>the adds will go here</strong>'
