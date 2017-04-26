@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<section id="content" class="body">
+  <header>
+    <time class="published" datetime="{{ article.date.isoformat() }}">
+      {{ article.locale_date }}
+    </time>
+    <h1 class="entry-title-article">{{ article.title }}</h1>
+ {% import 'translations.html' as translations with context %}
+ {{ translations.translations_for(article) }}
+  </header>
+  <div class="entry-content">
+    {{ article.content }}
+  </div><!-- /.entry-content -->
+  <div class="author-message">Enjoyed this post? Help me spread the word and let me know your feedback!</div>
+  <div class="addthis_inline_share_toolbox"></div>
+  {% if GOOGLE_ADS_ARTICLE_BOTTOM %}
+  {{ GOOGLE_ADS_ARTICLE_BOTTOM }}
+  {% endif %}
+<div id="disqus_thread"></div>
+<script>
+(function() {
+var d = document, s = d.createElement('script');
+s.src = 'https://thecodeship.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+{% endblock %}

@@ -1,4 +1,4 @@
-# Django git ignore
+# Python git ignore
 *~
 *.orig
 *.pyc
@@ -21,3 +21,9 @@ tmp
 Session.vim
 .netrwhist
 *~
+
+/output
+/content_backup
+publishconf.py
+fabfile.py
+pelicanconf.py
