@@ -5,6 +5,15 @@
         <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content=""/>
+        <meta name="keywords" content="programming,web,software,development,code,deployment,adventure,coding"/>
+        <meta name="author" content="Ayman"/>
+        <meta property="og:image" content="http://thecodeship.com/static/images/logo.png"/>
+        <meta property="og:title" content="The Code Ship"/>
+        <meta property="og:url" content="http://thecodeship.com/"/>
+        <meta property="og:site_name" content="The Code Ship"/>
+        <meta property="og:type" content="blog"/>
+        <meta property="og:description" content="Sailing through a sea of code,journey into computer programming and software development."/>
         {% if FEED_ALL_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
         {% endif %}
