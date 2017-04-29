@@ -156,6 +156,19 @@ ul.taglist {
     }
 }
 
+.feed {
+    ul {
+        list-style-type: none;
+        li {
+            margin-bottom: 10px;
+            img {
+                width: 1.4em;
+                vertical-align: top;
+            }
+        }
+    }
+}
+
 .side-footer {
     font-size: 12px;
     margin-bottom: 10px;
