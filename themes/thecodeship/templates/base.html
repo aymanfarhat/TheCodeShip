@@ -39,7 +39,6 @@
         <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
         {% endif %}
         {% endblock head %}
-        <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css"/>
         <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         
@@ -53,7 +52,7 @@
         <div class="row">
             <div class="one-fourth column" id="main-sidebar">
                 <header id="banner" class="body">
-                    <h1><a href="{{ SITEURL }}/">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
+                    <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/theme/images/tcs_logo_title.svg" alt="The Code Ship" class="logo-title"></a>
                     <img src="{{ SITEURL }}/theme/images/logo.png" alt="">
                     <h4>Sailing through a sea of code</h4>
                     <hr>
@@ -69,8 +68,10 @@
                 </nav><!-- /#menu -->
                 <hr>
                 <div class="feed">
-                    <a href="http://feeds.feedburner.com/thecodeship/yaMJ" target="_blank"><img src="/static/images/rss.png">&nbsp; Subscribe in a reader</a><br>
-                    <a href="http://feedburner.google.com/fb/a/mailverify?uri=thecodeship/yaMJ&amp;loc=en_US" target="_blank"><img src="/static/images/mail.png">&nbsp; Subscribe via email</a>
+                    <ul>
+                        <li><a href="http://feeds.feedburner.com/thecodeship/yaMJ" target="_blank">Subscribe in a reader</a></li>
+                        <li><a href="http://feedburner.google.com/fb/a/mailverify?uri=thecodeship/yaMJ&amp;loc=en_US" target="_blank">Subscribe via email</a></li>
+                    </ul>
                 </div>
                 <hr>
                 <div class="side-footer">
