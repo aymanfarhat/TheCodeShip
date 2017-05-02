@@ -27,3 +27,4 @@ Session.vim
 publishconf.py
 fabfile.py
 pelicanconf.py
+Makefile
