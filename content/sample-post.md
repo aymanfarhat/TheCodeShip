@@ -2,6 +2,7 @@ Title: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 Date: 2016-04-02 17:26
 Slug: lorem-ipsum-sample-post
 Summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pellentesque mauris non nulla pellentesque consequat. Pellentesque tellus enim, malesuada eu mattis non, vulputate ac ligula. Morbi ut nisi quis ex porttitor laoreet ullamcorper non dolor...
+Status:draft
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pellentesque mauris non nulla pellentesque consequat. Pellentesque tellus enim, malesuada eu mattis non, vulputate ac ligula. Morbi ut nisi quis ex porttitor laoreet ullamcorper non dolor. Mauris eget felis a nunc imperdiet pellentesque. Duis sagittis sit amet dui at feugiat. Phasellus sed suscipit lorem, vel imperdiet tortor. Nam lobortis est at rhoncus pretium. Mauris id ligula urna. Sed quis maximus diam, et egestas orci. Sed non venenatis magna.
 
