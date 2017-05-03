@@ -1,3 +1,2 @@
-*
-!.gitignore
+*.md
 !sample_post.md
