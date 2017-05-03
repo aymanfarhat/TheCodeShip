@@ -57,6 +57,20 @@ h1, h2, h3, h4, h5, h6, #menu {
             font-weight: bold;
             text-decoration: underline;
         }
+        p {
+            margin: 0 0 20px 0;
+        }
+
+        h2 {
+            margin-top: 30px;
+        }
+        
+        ul {
+            li {
+                line-height: 18px;
+                margin-bottom: 12px;
+            }
+        }
     }
 }
 
