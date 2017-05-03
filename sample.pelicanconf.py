@@ -48,8 +48,22 @@ TAG_SAVE_AS = 'tag/{slug}/index.html'
 
 THEME = './themes/thecodeship'
 
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
+
 PLUGIN_PATHS = [THEME + "/plugins"]
-PLUGINS = ['assets']
+PLUGINS = ['assets', 'sitemap']
 
 DEFAULT_DATE_FORMAT = ('%B %d, %Y')
 DEFAULT_CATEGORY = 'General'
