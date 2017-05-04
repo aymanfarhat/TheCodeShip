@@ -20,5 +20,9 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-#DISQUS_SITENAME = ""
-#GOOGLE_ANALYTICS = ""
+DISQUS_SITENAME = 'theblogusername'
+GOOGLE_ANALYTICS = 'theblog_ga_id'
+
+GOOGLE_ADS = True
+GOOGLE_ADS_SIDEBAR = 'Markup for first ad'
+GOOGLE_ADS_ARTICLE_BOTTOM = 'Markup for second ad'
