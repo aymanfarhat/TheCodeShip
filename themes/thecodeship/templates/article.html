@@ -1,14 +1,26 @@
 {% extends "base.html" %}
+{% block meta %}
+      <title>{{ article.title }}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% if article.summary %}
+        <meta name="description" content="{{ article.summary | striptags }}" />
+      {% endif %}
+        <meta name="keywords" content="programming,web,software,development,code,deployment,adventure,coding"/>
+        <meta name="author" content="{{ article.author }}"/>
+        <meta property="og:image" content="http://thecodeship.com/static/images/logo.png"/>
+        <meta property="og:title" content="{{ article.title }}"/>
+        <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}/"/>
+        <meta property="og:site_name" content="The Code Ship"/>
+        <meta property="og:type" content="blog"/>
+        <meta property="og:description" content="{{ article.summary | striptags }}"/>
+      {% for tag in article.tags %}
+        <meta name="tags" content="{{tag}}" />
+      {% endfor %}
+{% endblock %}
+
 {% block head %}
   {{ super() }}
-  {% if article.description %}
-    <meta name="description" content="{{article.description}}" />
-  {% endif %}
-
-  {% for tag in article.tags %}
-    <meta name="tags" content="{{tag}}" />
-  {% endfor %}
-
 {% endblock %}
 
 {% block content %}
