@@ -234,9 +234,25 @@ sup {
     font-size: 14px;
 }
 
+.feed {
+    display: none;
+}
+
+.sidebar-ad-container {
+    display: none;
+}
+
 @include wideTablet {
     h1 {
         font-size: 2rem; 
+    }
+    
+    .feed {
+        display: block;
+    }
+
+    .sidebar-ad-container {
+        display: block;
     }
 }
 
