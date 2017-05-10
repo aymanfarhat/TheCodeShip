@@ -26,3 +26,4 @@ GOOGLE_ANALYTICS = 'theblog_ga_id'
 GOOGLE_ADS = True
 GOOGLE_ADS_SIDEBAR = 'Markup for first ad'
 GOOGLE_ADS_ARTICLE_BOTTOM = 'Markup for second ad'
+GOOGLE_ADS_HEADER = 'Markup for 3rd header ad'
