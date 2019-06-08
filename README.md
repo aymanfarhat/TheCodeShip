@@ -1,12 +1,40 @@
-`mv sample.publishconf.py publishconf.py`
-`mv sample.pelicanconf.py pelicanconf.py`
-`mv sample.fabfile.py fabfile.py`
-`mv sample.Makefile Makefile`
+## Setup Instructions
 
-`pip install -r requirements.txt`
+### Copy and customize pelican conf files
 
-`sudo gem install sass`
+```
+mv sample.publishconf.py publishconf.py
+```
 
-`make html`
+```
+mv sample.pelicanconf.py pelicanconf.py
+```
+```
+mv sample.fabfile.py fabfile.py
+```
 
-`make serve`
+```
+mv sample.Makefile Makefile
+```
+
+### Install requirements
+
+```
+pip install -r requirements.txt
+```
+
+```
+sudo gem install sass
+```
+
+### Generate local HTML files
+
+```
+make html
+```
+
+### Serve locally
+
+```
+make serve
+```
