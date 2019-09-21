@@ -28,3 +28,6 @@ publishconf.py
 fabfile.py
 pelicanconf.py
 Makefile
+
+pelican.pid
+srv.pid
