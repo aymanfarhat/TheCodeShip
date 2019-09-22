@@ -24,10 +24,6 @@ Session.vim
 
 /output
 /content_backup
-publishconf.py
-fabfile.py
-pelicanconf.py
-Makefile
 
 pelican.pid
 srv.pid
