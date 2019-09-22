@@ -12,6 +12,8 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
+CONFFILE=$(BASEDIR)/pelicanconf.py
+PUBLISHCONF=$(BASEDIR)/publishconf.py
 
 GITHUB_PAGES_BRANCH=gh-pages
 
@@ -28,7 +30,7 @@ endif
 .PHONY: html
 ## (re)generate the web site
 html:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s pelicanconf.py $(PELICANOPTS)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 .PHONY: clean
 ## remove the generated files
@@ -38,15 +40,19 @@ clean:
 .PHONY: regenerate
 ## regenerate files upon modification
 regenerate:
-	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s pelicanconf.py $(PELICANOPTS)
+	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+
+.PHONY: gen-serve
+## (re)generate the web site and serve at http://localhost:8000
+gen-serve: html serve
 
 .PHONY: serve
 ## make serve [PORT=8000] - serve site at http://localhost:8000
 serve:
 ifdef PORT
-	cd $(OUTPUTDIR) && python3 -m pelican.server $(PORT)
+	$(PELICAN) --listen --port $(PORT) $(OUTPUTDIR) 
 else
-	cd $(OUTPUTDIR) && python3 -m pelican.server
+	$(PELICAN) --listen $(OUTPUTDIR)
 endif
 
 .PHONY: serve-global
@@ -76,7 +82,7 @@ stopserver:
 .PHONY: publish
 ## generate using production settings
 publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s publishconf.py $(PELICANOPTS)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 
 .PHONY: html
 ## (re)generate the web site

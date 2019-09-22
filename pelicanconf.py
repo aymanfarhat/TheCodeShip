@@ -3,14 +3,16 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Alex Markovits'
-SITENAME = 'Blog'
-SITEURL = ''
+SITENAME = '[wip]'
+SITEURL = 'https://wip.ai'
 
 PATH = 'content'
 
 TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'en'
+
+GITHUB_URL = 'http://github.com/amarkovits-1c/blog'
 
 # Feed generation is usually not desired when developing
 FEED_ATOM = 'feed/all.atom.xml'
