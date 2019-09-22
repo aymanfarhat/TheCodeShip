@@ -2,13 +2,13 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = 'Ayman Farhat'
-SITENAME = 'The Code Ship'
+AUTHOR = 'Alex Markovits'
+SITENAME = 'Blog'
 SITEURL = ''
 
 PATH = 'content'
 
-TIMEZONE = 'Asia/Beirut'
+TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'en'
 

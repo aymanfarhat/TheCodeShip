@@ -1,0 +1,39 @@
+style: github
+template: CHANGELOG.tpl.md
+info:
+  title: CHANGELOG
+  repository_url: https://github.com/oneconcern/seismic-resilience
+options:
+  commits:
+    sort_by: Type
+    filters:
+      Type:
+        - feat
+        - fix
+        - chore
+        - build
+        - test
+        - perf
+        - refactor
+
+  commit_groups:
+    group_by: Type
+    sort_by: Title
+    title_maps:
+      feat: Features
+      chore: Chores
+      build: Build
+      fix: Bug Fixes
+      perf: Performance Improvements
+      refactor: Code Refactoring
+
+  header:
+    pattern: '(?i)^(\w*)\s?(?:\(([\w\$\.\-\*\s]*)\))?\:?\s(.*)$'
+    pattern_maps:
+      - Type
+      - Scope
+      - Subject
+
+  notes:
+    keywords:
+      - BREAKING CHANGE

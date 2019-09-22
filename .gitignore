@@ -27,3 +27,5 @@ Session.vim
 
 pelican.pid
 srv.pid
+
+.venv/
