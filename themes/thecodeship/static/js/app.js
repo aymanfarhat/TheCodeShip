@@ -21,6 +21,16 @@ let utils = {
 };
 
 (function () {
+    // Register a basic service worker
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js')
+        .then(reg => console.log('Service Worker registered', reg))
+        .catch(err => console.log(err));
+    }
+    else {
+      console.warn('Service Worker not supported in this browser');
+    }
+
     // Convert all content links into target=_blank
     var links = document.querySelectorAll('.entry-content a');
 
