@@ -1,127 +1,185 @@
 <!DOCTYPE html>
 <html lang="{{ DEFAULT_LANG }}">
+
 <head>
-        {% if GOOGLE_ADS %}
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script>
-          (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-2296088280693007",
-            enable_page_level_ads: true
-          });
-        </script>
-        {% endif %}
+  {% if GOOGLE_ADS %}
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-2296088280693007",
+      enable_page_level_ads: true
+    });
+  </script>
+  {% endif %}
 
-        {% block meta %}
-        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content=""/>
-        <meta name="keywords" content="programming,web,software,development,code,deployment,adventure,coding"/>
-        <meta name="author" content="Ayman"/>
-        <meta property="og:image" content="{{ SITEURL }}/theme/images/thecodeship-default.jpg"/>
-        <meta property="og:title" content="The Code Ship"/>
-        <meta property="og:url" content="https://www.thecodeship.com/"/>
-        <meta property="og:site_name" content="The Code Ship"/>
-        <meta property="og:type" content="blog"/>
-        <meta property="og:description" content="Sailing through a sea of code,journey into computer programming and software development."/>
-        {% endblock %}
+  {% block meta %}
+  <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+  <meta name="keywords" content="programming,web,software,development,code,deployment,adventure,coding" />
+  <meta name="author" content="Ayman" />
+  <meta property="og:image" content="{{ SITEURL }}/theme/images/thecodeship-default.jpg" />
+  <meta property="og:title" content="The Code Ship" />
+  <meta property="og:url" content="https://www.thecodeship.com/" />
+  <meta property="og:site_name" content="The Code Ship" />
+  <meta property="og:type" content="blog" />
+  <meta property="og:description"
+    content="Sailing through a sea of code,journey into computer programming and software development." />
+  {% endblock %}
 
-        {% block head %}
-        {% if FEED_ALL_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
-        {% endif %}
-        {% if FEED_ALL_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
-        {% endif %}
-        {% if FEED_ATOM %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
-        {% endif %}
-        {% if FEED_RSS %}
-        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
-        {% endif %}
-        {% if CATEGORY_FEED_ATOM and category %}
-        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
-        {% endif %}
-        {% if CATEGORY_FEED_RSS and category %}
-        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
-        {% endif %}
-        {% if TAG_FEED_ATOM and tag %}
-        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM.format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
-        {% endif %}
-        {% if TAG_FEED_RSS and tag %}
-        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS.format(slugtag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
-        {% endif %}
-        {% endblock head %}
-        <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css"/>
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-        
-        {% assets filters="scss,cssmin", output="css/style.min.css", "scss/style.scss" %}
-        <link rel="stylesheet" type="text/css" href="/{{ ASSET_URL }}" />
-        {% endassets %}
+  {% block head %}
+  {% if FEED_ALL_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
+    title="{{ SITENAME }} Full Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
+    title="{{ SITENAME }} Full RSS Feed" />
+  {% endif %}
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate"
+    title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate"
+    title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_ATOM and category %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}" type="application/atom+xml"
+    rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_RSS and category %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}" type="application/rss+xml"
+    rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  {% endif %}
+  {% if TAG_FEED_ATOM and tag %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM.format(slug=tag.slug) }}" type="application/atom+xml" rel="alternate"
+    title="{{ SITENAME }} Tags Atom Feed" />
+  {% endif %}
+  {% if TAG_FEED_RSS and tag %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS.format(slugtag.slug) }}" type="application/rss+xml" rel="alternate"
+    title="{{ SITENAME }} Tags RSS Feed" />
+  {% endif %}
+  {% endblock head %}
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+  {% assets filters="scss,cssmin", output="css/style.min.css", "scss/style.scss" %}
+  <link rel="stylesheet" type="text/css" href="/{{ ASSET_URL }}" />
+  {% endassets %}
 </head>
 
 <body id="index" class="home">
-    {% if GOOGLE_ANALYTICS  %}
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  {% if GOOGLE_ANALYTICS  %}
+  <script>
+    (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date(); a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      ga('create', '{{ GOOGLE_ANALYTICS }}', 'auto');
-      ga('send', 'pageview');
+    ga('create', '{{ GOOGLE_ANALYTICS }}', 'auto');
+    ga('send', 'pageview');
 
-    </script>
-    {% endif %}
-    <div class="container">
-        <div class="row">
-            <div class="one-fourth column" id="main-sidebar">
-                <header id="banner" class="body">
-                    <a href="{{ SITEURL }}/"><img src="{{ SITEURL }}/theme/images/tcs_logo_title.svg" alt="The Code Ship" class="logo-title"></a>
-                    <img src="{{ SITEURL }}/theme/images/logo.png" alt="">
-                    <h4>Sailing through a sea of code</h4>
-                    <hr>
-                </header><!-- /#banner -->
-                <nav id="menu">
-                    <ul>
-                      {% if DISPLAY_CATEGORIES_ON_MENU %}
-                        {% for cat, articles in categories %}
-                        <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}<sup>{{ articles | count }}</sup></a></li>
-                        {% endfor %}
-                      {% endif %}
-                    </ul>
-                </nav><!-- /#menu -->
-                <hr>
-                <div class="feed">
-                    Subscribe via
-                    <ul>
-                        <li><img src="{{ SITEURL }}/theme/images/email-icon.svg" alt="Email subscribe - Feed Burner"><a href="http://feedburner.google.com/fb/a/mailverify?uri=thecodeship/yaMJ&amp;loc=en_US" target="_blank"> Your email</a></li>
-                        <li><img src="{{ SITEURL }}/theme/images/rss-feed-icon.svg" alt="RSS Feed"><a href="{{ SITEURL }}/feed/all.rss.xml" target="_blank"> Raw RSS Feed</a></li>
-                        <li><img src="{{ SITEURL }}/theme/images/feedburner-icon.svg" alt="Reader subscribe - Feed burner"><a href="http://feeds.feedburner.com/thecodeship/yaMJ" target="_blank"> Feed burner reader</a></li>
-                    </ul>
-                </div>
-                <hr>
-                <div class="side-footer">
-                    Blog by <a href="http://aymanfarhat.com">Ayman Farhat</a>. Built with <a href="https://blog.getpelican.com/">Pelican</a>
-                </div>
-                {% if GOOGLE_ADS and GOOGLE_ADS_SIDEBAR %}
-                <div class="sidebar-ad-container">
-                    {{ GOOGLE_ADS_SIDEBAR }}
-                </div>
-                {% endif %}
-            </div>
-            <div class="three-fourth column">
-                {% block content %}
-                {% endblock %}
-            </div>
-            <a id="forkme" href="https://github.com/aymanfarhat/TheCodeShip"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-        </div>    
+  </script>
+  {% endif %}
+  <div class="container">
+    <header class="site-header" id="js-site-header">
+      <div class="mtoggle" id="js-mtoggle">
+        <span id="js-mtoggle-open-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-menu">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </span>
+        <span id="js-mtoggle-close-icon" class="hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="feather feather-x">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </span>
+      </div>
+      <div class="logo-wrapper">
+        <img class="logo-wrapper--site-logo" src="{{ SITEURL }}/theme/images/logo.png" alt="">
+        <div class="logo-wrapper--site-title">
+          <a href="{{ SITEURL }}/">
+            <svg class="logo-wrapper--logo-title" version="1.1" viewBox="0 0 694.49 141.73"
+              xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
+              xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+              <g transform="translate(0 -910.63)">
+                <text x="10.285706" y="1017.7908" fill="#444" font-family="sans-serif" font-size="180px"
+                  letter-spacing="0px" stroke-width="1px" word-spacing="0px" style="line-height:125%"
+                  xml:space="preserve">
+                  <tspan x="10.285706" y="1017.7908" fill="#444444" font-family="Lobster" font-size="125px">The CodeShip</tspan>
+                </text>
+              </g>
+            </svg>
+          </a>
+          <h4>Sailing through a sea of code</h4>
+        </div>
+      </div>
+      <div class="links">
+        <a href="#" class="rss">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+        </a>
+        <a href="#" class="github">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+        </a>
+      </div>
+    </header>
+    <hr>
+    <div class="content">
+      <div class="content--area">
+        {% block content %}{% endblock %}
+      </div>
     </div>
+    <hr>
+    <div class="footer">
+      Blog by <a href="http://aymanfarhat.com">Ayman Farhat</a>. Built with <a href="https://blog.getpelican.com/">
+        Pelican</a>. Fork me on <a href="https://github.com/aymanfarhat/TheCodeShip">Github</a>!
+    </div>
+  </div>
+  <div class="side-menu" id="js-side-menu">
+    <h2>Topics</h2>
+    <nav style="width:200px;">
+      <ul>
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+        {% for cat, articles in categories %}
+        <li{% if cat == category %} class="active" {% endif %}><a
+            href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}<sup>{{ articles | count }}</sup></a></li>
+          {% endfor %}
+          {% endif %}
+      </ul>
+      <hr>
+    </nav>
+    <div class="feed">
+      Subscribe via
+      <ul>
+        <li><img src="{{ SITEURL }}/theme/images/email-icon.svg" alt="Email subscribe - Feed Burner"><a
+            href="http://feedburner.google.com/fb/a/mailverify?uri=thecodeship/yaMJ&amp;loc=en_US" target="_blank"> Your
+            email</a></li>
+        <li><img src="{{ SITEURL }}/theme/images/rss-feed-icon.svg" alt="RSS Feed"><a
+            href="{{ SITEURL }}/feed/all.rss.xml" target="_blank"> Raw RSS Feed</a></li>
+        <li><img src="{{ SITEURL }}/theme/images/feedburner-icon.svg" alt="Reader subscribe - Feed burner"><a
+            href="http://feeds.feedburner.com/thecodeship/yaMJ" target="_blank"> Feed burner reader</a></li>
+      </ul>
+      <hr>
+    </div>
+  </div>
 
-    {% assets filters="jsmin", output="js/app.min.js", "js/app.js" %}
-    <script type="text/javascript" src="/{{ ASSET_URL }}"></script>
-    {% endassets %}
+  {% assets filters="jsmin", output="js/app.min.js", "js/app.js" %}
+  <script type="text/javascript" src="/{{ ASSET_URL }}" defer></script>
+  {% endassets %}
 
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5165a84d1a2a1ff3"></script> 
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5165a84d1a2a1ff3"
+    defer></script>
 </body>
+
 </html>
