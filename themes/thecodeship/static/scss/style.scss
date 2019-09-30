@@ -291,6 +291,11 @@ sup {
   text-align: center;
   justify-content: center;
   padding: 10px;
+
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
 }
 
 .side-menu {
