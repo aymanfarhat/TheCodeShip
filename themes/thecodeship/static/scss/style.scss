@@ -107,11 +107,6 @@ h1, h2, h3, h4, h5, h6, #menu {
   }
 }
 
-/**
-#main-sidebar {
-}
-**/
-
 .entry-title {
     font-size: 22px;
 }
@@ -160,21 +155,33 @@ time.published {
     }
 }
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
+.side-menu {
+  .menu-title {
+    text-align: center;
+    width: 200px;
+  }
 
-    li {
-        line-height: 20px;
-        margin-left: 0;
-        margin-top: 20px;
+  nav {
+    width: 200px
+  }
 
-        &:first-child {
-            margin-top: 0; 
-        }
-    }
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      font-size: 17px;
+      margin-left: 10px;
+
+      li {
+          line-height: 20px;
+          margin-left: 0;
+          margin-top: 20px;
+
+          &:first-child {
+              margin-top: 0; 
+          }
+      }
+  }
 }
 
 ul.taglist {
