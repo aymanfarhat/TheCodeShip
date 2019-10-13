@@ -62,4 +62,20 @@ let utils = {
         menuIsOpen = true;
       }
     });
+
+    const offlineBanner = document.getElementById('js-offline-banner');
+
+    function handleNetworkChange(event) {
+      if (navigator.onLine) {
+        utils.removeClass(offlineBanner, 'offline-status--hidden');
+      } else {
+        utils.addClass(offlineBanner, 'offline-status--hidden')
+      }
+    }
+
+    window.addEventListener('online', handleNetworkChange);
+    window.addEventListener('offline', handleNetworkChange);
 })();
+
+window.addEventListener("load", () => {
+});

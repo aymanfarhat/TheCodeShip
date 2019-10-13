@@ -23,11 +23,8 @@ h1, h2, h3, h4, h5, h6, #menu {
     font-weight: normal;
 }
 
-.container {
-    margin-top: 10px;
-}
-
 .site-header {
+    margin-top:10px;
     grid-area: header-area;
     display: grid;
     grid-template-columns: 10% 80% 10%;
@@ -302,6 +299,31 @@ sup {
   a {
     font-weight: bold;
     text-decoration: underline;
+  }
+}
+
+.offline-status {
+  display: grid;
+  background-color: #CCC;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 5px;
+
+  &__message {
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__refresh {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 15px;
+  }
+
+  &--hidden {
+    display: none;
   }
 }
 

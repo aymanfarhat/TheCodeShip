@@ -1,9 +1,5 @@
 let CACHE = 'thecodeship-cache';
 
-self.addEventListener('install', function(event) {
-  //event.waitUntil(precache());
-});
-
 self.addEventListener('fetch', event => {
   if(isCacheEnabledOrigin(event.request.url)) {
     return event.respondWith(networkFirst(event.request));
