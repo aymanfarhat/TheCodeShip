@@ -3,8 +3,6 @@ let CACHE = 'thecodeship-cache';
 self.addEventListener('fetch', event => {
   if(isCacheEnabledOrigin(event.request.url)) {
     return event.respondWith(networkFirst(event.request));
-  } else {
-    return event.respondWith(fetch(event.request));
   }
 });
 
@@ -55,7 +53,6 @@ function precache() {
   return caches.open(CACHE).then(function (cache) {
     return cache.addAll([
       '/',
-      '/index2.html'
     ]);
   });
 }
