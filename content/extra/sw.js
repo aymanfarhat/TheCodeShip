@@ -1,4 +1,13 @@
-let CACHE = 'thecodeship-cache';
+const CACHE = 'thecodeship-cache';
+const PRECACHED_URLS = [
+  '/',
+  '/theme/css/style.min.css',
+  'theme/js/app.min.js',
+  '/theme/images/email-icon.svg',
+  '/theme/images/feedburner-icon.svg',
+  '/theme/images/logo.png',
+  '/theme/images/rss-feed-icon.svg'
+];
 
 self.addEventListener('fetch', event => {
   if(isCacheEnabledOrigin(event.request.url)) {

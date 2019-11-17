@@ -77,5 +77,4 @@ let utils = {
     window.addEventListener('offline', handleNetworkChange);
 })();
 
-window.addEventListener("load", () => {
-});
+window.addEventListener("load", () => {});
