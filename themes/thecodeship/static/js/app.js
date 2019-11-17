@@ -64,6 +64,7 @@ let utils = {
     });
 
     const offlineBanner = document.getElementById('js-offline-banner');
+    const refreshBtn = document.getElementById('js-refresh-btn');
 
     function handleNetworkChange(event) {
       if (navigator.onLine) {
@@ -75,6 +76,11 @@ let utils = {
 
     window.addEventListener('online', handleNetworkChange);
     window.addEventListener('offline', handleNetworkChange);
+
+    refreshBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.location.reload(true);
+    });
 })();
 
 window.addEventListener("load", () => {});
