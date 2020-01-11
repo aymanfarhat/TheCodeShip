@@ -1,79 +1,52 @@
-const CACHE = 'thecodeship-cache';
-const PRECACHED_URLS = [
-  '/',
-  '/theme/css/style.min.css',
-  'theme/js/app.min.js',
-  '/theme/images/email-icon.svg',
-  '/theme/images/feedburner-icon.svg',
-  '/theme/images/logo.png',
-  '/theme/images/rss-feed-icon.svg'
-];
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js');
 
-self.addEventListener('fetch', event => {
-  if(isCacheEnabledOrigin(event.request.url)) {
-    return event.respondWith(networkFirst(event.request));
-  }
-});
+workbox.skipWaiting();
+workbox.clientsClaim();
 
-/**
- * Returns requested content from network and updates the cache. On network fail, 
- * uses the cached content as a fallback if available.
- * @param {object} request 
- */
-function networkFirst(request) {
-  return new Promise((fulfill, reject) => {
-      fetch(request).then((response) => {
-        return caches.open(CACHE).then((cache) => {
-          cache.put(request, response.clone());
-          fulfill(response)
-        })
-      })
-      .catch((error) => {
-        fulfill(fromCache(request))
-      })
-  });
-}
-
-/**
- * Checks if a given URL is whitelisted for caching
- * @param {string} requestUrl 
- */
-function isCacheEnabledOrigin(requestUrl) {
-  const allowedOrigins = [
-    'https://wwww.thecodeship.com',
-    'http://127.0.0.1'
-  ]
-
-  let enableCache = false;
-
-  allowedOrigins.forEach((origin) => {
-    if(requestUrl.startsWith(origin)) {
-      enableCache = true;
-    }
+// cache name
+workbox.core.setCacheNameDetails({
+    prefix: 'thecodeship-cache',
+    runtime: 'runtime',
   });
 
-  return enableCache;
-}
+workbox.routing.registerRoute(
+    new RegExp('\.css'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'thecodeship-cache-css',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
+                maxEntries: 20, // only cache 20 requests
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
 
-/**
- * Caches the app shell related resources
- */
-function precache() {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.addAll([
-      '/',
-    ]);
-  });
-}
+workbox.routing.registerRoute(
+    new RegExp('_app.js$'),
+    workbox.strategies.cacheFirst({
+        cacheName: 'thecodeship-cache-js',
+        plugins: [
+            new workbox.expiration.Plugin({
+                maxAgeSeconds: 60 * 60 * 24 * 7, // cache for one week
+                maxEntries: 20, // only cache 20 requests
+                purgeOnQuotaError: true
+            })
+        ]
+    })
+);
 
-/**
- * Fetches a resource related to a request from the cache 
- * @param {*} request 
- */
-function fromCache(request) {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
-      return matching || Promise.reject('no-match');
-    });
-  });
-}
+workbox.routing.registerRoute(
+  new RegExp('\.(png|svg|jpg|jpeg)$'),
+  workbox.strategies.cacheFirst({
+      cacheName: 'thecodeship-cache-images',
+      plugins: [
+          new workbox.expiration.Plugin({
+              maxAgeSeconds: 60 * 60 * 24 * 7,
+              maxEntries: 50,
+              purgeOnQuotaError: true
+          })
+      ]
+  })
+);
