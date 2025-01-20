@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6, #menu {
     margin-top:10px;
     grid-area: header-area;
     display: grid;
-    grid-template-columns: 10% 80% 10%;
+    grid-template-columns: 10% 75% 15%;
 
     .mtoggle, .links {
       color: $black;
