@@ -24,6 +24,7 @@ Session.vim
 
 /output
 /content_backup
+/env
 publishconf.py
 fabfile.py
 pelicanconf.py
